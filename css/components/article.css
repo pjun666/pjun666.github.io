@@ -19,7 +19,19 @@ article blockquote {
   margin: 6rem 2rem;
   padding-left: 15px;
   line-height: 2rem;
-  border-left: 4px solid #f03838;
+}
+article .article-read {
+  border-radius: 999em;
+  font-size: 16px;
+  text-align: center;
+  padding: 7px 0;
+  border: 1px solid #000;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+article .article-read:hover a {
+  text-decoration: none;
 }
 article .article-title {
   position: relative;
@@ -69,13 +81,12 @@ article .article-excerpt,
 article .article-content,
 article .featured-media {
   margin: 4rem 0;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: #424242;
 }
 article .article-excerpt img,
 article .article-content img,
 article .featured-media img {
-  display: block;
   max-width: 100%;
   height: auto;
   margin: 1rem auto;
@@ -131,9 +142,27 @@ article code {
   white-space: normal;
   border-radius: 0;
 }
-article p {
+article p,
+article ul {
   margin: 2rem 0;
   line-height: 1.8;
+}
+article p li,
+article ul li {
+  list-style: circle;
+  margin-left: 20px;
+}
+article h1 {
+  padding-bottom: 0.3em;
+  font-size: 2em;
+}
+article h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.5em;
+}
+article h3 {
+  padding-bottom: 0.3em;
+  font-size: 1em;
 }
 article .video-container {
   position: relative;
@@ -179,8 +208,4 @@ article table .table-bordered {
 }
 article table .table-striped tbody tr:nth-of-type(odd) {
   background-color: #f2f2f2;
-}
-article table pre {
-  overflow-x: auto;
-  overflow-y: hidden;
 }

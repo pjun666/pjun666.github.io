@@ -4,6 +4,11 @@ article .tags-cloud {
   text-align: center;
   line-height: 2rem;
 }
+article .tags-total {
+  margin-top: 20px;
+  text-align: center;
+  font-family: Wawati SC;
+}
 article .tags-cloud > spannot(last-child) {
   margin-right: 3rem;
 }
