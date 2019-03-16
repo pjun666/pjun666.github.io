@@ -5,23 +5,23 @@
   
 
   
-  <title>我的心情日记 | Tahm&#39;s blog</title>
+  <title>SQLMap笔记 | Tahm&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
-  <meta name="description" content="我想一个人静静">
-<meta name="keywords" content="我想静静">
+  <meta name="description" content="sqlmap -u “url”get注入：-u “url”post注入： –data “数据”cookie注入: –cookie “cookie值” 获取数据库名：–current-db获取当前用户：–current–user 获取数据量：–count -D 库名查看用户权限：–privilegesMySQL:rootMSSQL:sa 注入MySQL1.获取库名：–current-db2.获取表名">
+<meta name="keywords" content="Web安全">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的心情日记">
-<meta property="og:url" content="https://pjun666.github.io/2018/12/04/我的心情日记/index.html">
+<meta property="og:title" content="SQLMap笔记">
+<meta property="og:url" content="https://pjun666.github.io/2019/03/16/SQLMap笔记/index.html">
 <meta property="og:site_name" content="Tahm&#39;s blog">
-<meta property="og:description" content="我想一个人静静">
+<meta property="og:description" content="sqlmap -u “url”get注入：-u “url”post注入： –data “数据”cookie注入: –cookie “cookie值” 获取数据库名：–current-db获取当前用户：–current–user 获取数据量：–count -D 库名查看用户权限：–privilegesMySQL:rootMSSQL:sa 注入MySQL1.获取库名：–current-db2.获取表名">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-24T12:35:01.133Z">
+<meta property="og:updated_time" content="2019-03-16T03:01:25.288Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的心情日记">
-<meta name="twitter:description" content="我想一个人静静">
+<meta name="twitter:title" content="SQLMap笔记">
+<meta name="twitter:description" content="sqlmap -u “url”get注入：-u “url”post注入： –data “数据”cookie注入: –cookie “cookie值” 获取数据库名：–current-db获取当前用户：–current–user 获取数据量：–count -D 库名查看用户权限：–privilegesMySQL:rootMSSQL:sa 注入MySQL1.获取库名：–current-db2.获取表名">
   
     <link rel="alternate" href="/atom.xml" title="Tahm&#39;s blog" type="application/atom+xml">
   
@@ -56,25 +56,25 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main"><article id="post-我的心情日记" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-SQLMap笔记" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      我的心情日记
+      SQLMap笔记
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2018/12/04/我的心情日记/" class="article-date">
-  <time datetime="2018-12-04T03:14:41.000Z" itemprop="datePublished">2018-12-04</time>
+    <a href="/2019/03/16/SQLMap笔记/" class="article-date">
+  <time datetime="2019-03-16T03:00:02.000Z" itemprop="datePublished">2019-03-16</time>
 </a>
     
     
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/我想静静/">我想静静</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web安全/">Web安全</a></li></ul>
 
   </div>
   
@@ -87,7 +87,20 @@
     
     <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-        <h2 id="我想一个人静静"><a href="#我想一个人静静" class="headerlink" title="我想一个人静静"></a>我想一个人静静</h2>
+        <p>sqlmap -u “url”<br>get注入：-u “url”<br>post注入： –data “数据”<br>cookie注入: –cookie “cookie值”</p>
+<p>获取数据库名：–current-db<br>获取当前用户：–current–user</p>
+<p>获取数据量：–count -D 库名<br>查看用户权限：–privileges<br>MySQL:root<br>MSSQL:sa</p>
+<p>注入MySQL<br>1.获取库名：–current-db<br>2.获取表名：–tables -D 库名<br>3.获取列名：–columns -T 表名 -D 库名<br>4.获取内容：–dump -C 列名 -T 表名 -D 库名</p>
+<p>其它数据库流程相同<br>NoSQLMap(github) 注入Mangodb、NoSQL</p>
+<p>sqlmap连接数据库sqlmap.py -d “mysql:用户名:密码@地址:端口/数据库名”<br>前提：安装pymysql  github下载<br>进入命令行：–sql-shell</p>
+<p>延时注入：–delay 时间<br>延时注入：–safe-freq</p>
+<p>需要网站绝对路径    、最高权限<br>命令执行(提权)：–os-cmd=”命令”    4-2<br>写webshell：–os-shell    4-2<br>本地写入webshell：–file-write “本地文件路径” –file-dest “目标文件路径”</p>
+<p>绕waf：–tamper=”脚本名字”</p>
+<p>批量检测：-m “文件路径”<br>结合BurpSuite批量检测：-l “burp.log” –batch -smart<br>batch：会自动选择yes<br>smart：启发式快速判断，节约时间</p>
+<p>注入级别：<br>–level=（1-5）#水平等级，默认为1<br>–risk=（0-3）#风险等级，默认为0</p>
+<p>检测防火墙特征：–identity-waf</p>
+<p>学习注入payload：<br>1.xml目录<br>2.-v参数，默认为1，3显示注入的payload<br>3.–proxy=<a href="http://ip:port" target="_blank" rel="noopener">http://ip:port</a>  结合BurpSuite代理抓包</p>
+
       
     </div>
     
@@ -101,20 +114,11 @@
 <nav id="article-nav">
   <div class="article-nav-block">
     
-      <a href="/2018/12/04/httpd/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption"></strong>
-        <div class="article-nav-title">
-          
-            Linux 源码安装Apache
-          
-        </div>
-      </a>
-    
   </div>
   <div class="article-nav-block">
     
-      <a href="/2018/12/04/Myfirstblog/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">我的第一篇博客</div>
+      <a href="/2019/03/02/内网渗透/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">内网渗透</div>
         <strong class="article-nav-caption"></strong>
       </a>
     
