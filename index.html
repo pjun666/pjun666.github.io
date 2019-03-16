@@ -53,6 +53,50 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-Access手工注入" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/16/Access手工注入/">Access手工注入</a>
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/03/16/Access手工注入/" class="article-date">
+  <time datetime="2019-03-16T11:48:34.000Z" itemprop="datePublished">2019-03-16</time>
+</a>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web安全/">Web安全</a></li></ul>
+
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>1.手工注入(暴力猜解)</p>
+<p>表名：<br>id=1 and exists(select * from 表名)</p>
+<p>列名：<br>id=1 and exists(select 列名 from 表名)</p>
+<p>列中内容长度：<br>id=1 and (select top 1 len(列名) from 表名) &gt; 3</p>
+<p>列中内容的每个字符：<br>id=1 and (select top 1 asc(mid(列名,1,1)) from 表名) &gt; 96</p>
+<p>2.工具注入<br>穿山甲、明小子、啊D、SQLMap</p>
+<p>3.中转注入（Cookie注入）<br>中转注入为cookie注入的一种手法，这种攻击手法常见于asp搭配数据库的情况，当asp脚本中有对传入的数据进行检测过滤时，只对post和get方法所获取的数据进行检查，而没有对cookie检查，可以在cookie中加入你的sql注射攻击代码，从而绕过asp检测脚本而对数据库进行攻击<br>salmap –cookie “id=1” –leval 3</p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-SQLMap笔记" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
   
     <header class="article-header">
@@ -1893,43 +1937,6 @@
 </article>
 
   
-    <article id="post-今天又是充满希望的一天" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/04/今天又是充满希望的一天/">今天又是充满希望的一天</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2018/12/04/今天又是充满希望的一天/" class="article-date">
-  <time datetime="2018-12-04T14:03:07.000Z" itemprop="datePublished">2018-12-04</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/我想静静/">我想静静</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h2 id="想一个人静静"><a href="#想一个人静静" class="headerlink" title="想一个人静静"></a>想一个人静静</h2><h2 id="别问我静静是谁"><a href="#别问我静静是谁" class="headerlink" title="别问我静静是谁"></a>别问我静静是谁</h2><h2 id="那是藏在我心底的人"><a href="#那是藏在我心底的人" class="headerlink" title="那是藏在我心底的人"></a>那是藏在我心底的人</h2><h2 id="我想静静"><a href="#我想静静" class="headerlink" title="我想静静"></a>我想静静</h2>
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
 
 
   <nav id="page-nav">
@@ -1995,6 +2002,10 @@
       <ul>
         
           <li>
+            <a href="/2019/03/16/Access手工注入/">Access手工注入</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/16/SQLMap笔记/">SQLMap笔记</a>
           </li>
         
@@ -2008,10 +2019,6 @@
         
           <li>
             <a href="/2019/03/01/2019年计划/">2019年个人计划</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/25/II6-0文件解析漏洞/">II6.0文件解析漏洞</a>
           </li>
         
       </ul>

