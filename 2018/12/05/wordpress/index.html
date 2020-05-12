@@ -10,7 +10,7 @@
     
     
     
-    <title>LAMP环境搭建WordPress博客 | 赵氏扶绥龙 的blog</title>
+    <title>LAMP环境搭建WordPress博客 | 赵氏扶绥龙</title>
     <link href="https://pjun666.github.io" rel="prefetch">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -77,7 +77,7 @@
                     }
                 </style>
                 <!-- 这里使用文字(navbar_text or config.title) -->
-                <div class="navbar-brand">赵氏扶绥龙 的blog</div>
+                <div class="navbar-brand">赵氏扶绥龙</div>
                 
             </a>
         </div>
@@ -163,7 +163,7 @@
 <article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="https://pjun666.github.io">赵氏扶绥龙 的blog</a>
+        <a href="https://pjun666.github.io">赵氏扶绥龙</a>
         >
         <span>LAMP环境搭建WordPress博客</span>
     </div>
@@ -253,7 +253,7 @@
 <li>用mysqladmin -u root password “password”设置root用户密码会报错，并且设置失败。下面给出报错信息和解决方法</li>
 </ul>
 </blockquote>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~# mysqladmin -u root password &quot;password&quot;</span><br><span class="line">mysqladmin: [Warning] Using a password on the command line interface can be insecure.</span><br><span class="line">Warning: Since password will be sent to server in plain text, use ssl connection to ensure password safety.</span><br><span class="line">root@ubuntu:~#</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~# mysqladmin -u root password &quot;password&quot;</span><br><span class="line">mysqladmin: [Warning] Using a password on the command line interface can be insecure.</span><br><span class="line">Warning: Since password will be sent to server in plain text, use ssl connection to ensure password safety.</span><br><span class="line">root@ubuntu:~#</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>解决方法：</p>
 <ol>
@@ -295,7 +295,7 @@
 <li><p><a href="http://192.168.17.139/wordpress" target="_blank" rel="noopener">http://192.168.17.139/wordpress</a><br>进入wordpress配置页面</p>
 </li>
 <li><p>出现问题：<br>页面只显示php源码，没有显示页面效果</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PHP"><figure class="iseeu highlight /php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Front to the WordPress application. This file doesn't do anything, but loads</span></span><br><span class="line"><span class="comment"> * wp-blog-header.php which does and tells WordPress to load the theme.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> WordPress</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Tells WordPress to load the WordPress theme and output it.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@var</span> bool</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">define(<span class="string">'WP_USE_THEMES'</span>, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Loads the WordPress Environment and Template */</span></span><br><span class="line"><span class="keyword">require</span>( dirname( <span class="keyword">__FILE__</span> ) . <span class="string">'/wp-blog-header.php'</span> );</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Front to the WordPress application. This file doesn't do anything, but loads</span></span><br><span class="line"><span class="comment"> * wp-blog-header.php which does and tells WordPress to load the theme.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> WordPress</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Tells WordPress to load the WordPress theme and output it.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@var</span> bool</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">define(<span class="string">'WP_USE_THEMES'</span>, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Loads the WordPress Environment and Template */</span></span><br><span class="line"><span class="keyword">require</span>( dirname( <span class="keyword">__FILE__</span> ) . <span class="string">'/wp-blog-header.php'</span> );</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -304,11 +304,11 @@
 <li>问题原因：<br>没有安装php对apache的libapache2-mod-php7.2文件      </li>
 <li>解决方法：<br>查询并且安装libapache2-mod-php7.2文件<br><code>apt search apache2 | grep php</code><br><code>apt install libapache2-mod-php7.2</code></li>
 </ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;root@ubuntu:~# apt search apache2 | grep php</span><br><span class="line">&gt;</span><br><span class="line">&gt;WARNING: apt does not have a stable CLI interface. Use with caution in scripts.</span><br><span class="line">&gt;</span><br><span class="line">&gt;libapache2-mod-php/bionic 1:7.2+60ubuntu1 all</span><br><span class="line">&gt;libapache2-mod-php7.2/bionic-security,bionic-updates 7.2.10-0ubuntu0.18.04.1 amd64</span><br><span class="line">&gt;root@ubuntu:~# apt install libapache2-mod-php7.2</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></div>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;root@ubuntu:~# apt search apache2 | grep php</span><br><span class="line">&gt;</span><br><span class="line">&gt;WARNING: apt does not have a stable CLI interface. Use with caution in scripts.</span><br><span class="line">&gt;</span><br><span class="line">&gt;libapache2-mod-php/bionic 1:7.2+60ubuntu1 all</span><br><span class="line">&gt;libapache2-mod-php7.2/bionic-security,bionic-updates 7.2.10-0ubuntu0.18.04.1 amd64</span><br><span class="line">&gt;root@ubuntu:~# apt install libapache2-mod-php7.2</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h4 id="4-配置-wordpress"><a href="#4-配置-wordpress" class="headerlink" title="4. 配置 wordpress"></a>4. 配置 wordpress</h4><blockquote>
 <ul>
-<li>第一步：配置wordpress之前先创建所需的数据库wordpress<br>mysql -u root -p<br>create database wordpress;<br>exit<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;mysql -u root -p</span><br><span class="line">&gt;</span><br><span class="line">&gt;mysql&gt; create database wordpress;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line">mysql&gt; exit</span><br><span class="line">Bye</span><br></pre></td></tr></table></figure></div>
+<li>第一步：配置wordpress之前先创建所需的数据库wordpress<br>mysql -u root -p<br>create database wordpress;<br>exit<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;mysql -u root -p</span><br><span class="line">&gt;</span><br><span class="line">&gt;mysql&gt; create database wordpress;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line">mysql&gt; exit</span><br><span class="line">Bye</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -420,18 +420,6 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/01/2019年3月近期计划/">2019年3月近期计划</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/01/2019年计划/">2019年个人计划</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2019/02/25/II6-0文件解析漏洞/">II6.0文件解析漏洞</a>
                 </span>
             </li>
@@ -451,6 +439,18 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/02/22/腾讯云搭建Web漏洞靶场/">本地虚拟机或腾讯云搭建Web漏洞靶场</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/05/wordpress/">LAMP环境搭建WordPress博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/04/今天又是充满希望的一天/">今天又是充满希望的一天</a>
                 </span>
             </li>
             
@@ -478,25 +478,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/02/24/DNS是什么？DNS域名系统解释/">DNS是什么？DNS域名系统解释</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/03/16/SQLMap笔记/">SQLMap笔记</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/12/04/hello-world/">Hello World</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/01/2019年计划/">2019年个人计划</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/02/24/《百度白帽挖洞经验分享》笔记总结/">《百度白帽挖洞经验分享》笔记</a>
                 </span>
             </li>
             
@@ -508,7 +496,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/01/2019年3月近期计划/">2019年3月近期计划</a>
+                    <a href="/2018/12/04/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/16/union联合查询/">union联合查询笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/04/今天又是充满希望的一天/">今天又是充满希望的一天</a>
                 </span>
             </li>
             
@@ -520,13 +520,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/12/04/httpd/">Linux 源码安装Apache</a>
+                    <a href="/2019/02/22/腾讯云搭建Web漏洞靶场/">本地虚拟机或腾讯云搭建Web漏洞靶场</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/16/union联合查询/">union联合查询笔记</a>
+                    <a href="/2018/12/04/httpd/">Linux 源码安装Apache</a>
                 </span>
             </li>
             
@@ -559,17 +559,17 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/Web安全/" style="font-size: 19.10080340077948px;" class="tag-cloud-link">Web安全</a>
+    <a href="/tags/Web安全/" style="font-size: 17.111142411753345px;" class="tag-cloud-link">Web安全</a>
     
-    <a href="/tags/我想静静/" style="font-size: 11.409114774350076px;" class="tag-cloud-link">我想静静</a>
+    <a href="/tags/我想静静/" style="font-size: 18.132553792078703px;" class="tag-cloud-link">我想静静</a>
     
-    <a href="/tags/计算机网络/" style="font-size: 14.951402023152141px;" class="tag-cloud-link">计算机网络</a>
+    <a href="/tags/计算机网络/" style="font-size: 10.61528948683905px;" class="tag-cloud-link">计算机网络</a>
     
-    <a href="/tags/中间件安全/" style="font-size: 16.703804678097924px;" class="tag-cloud-link">中间件安全</a>
+    <a href="/tags/中间件安全/" style="font-size: 19.237190542503843px;" class="tag-cloud-link">中间件安全</a>
     
-    <a href="/tags/Linux/" style="font-size: 12.596574358706228px;" class="tag-cloud-link">Linux</a>
+    <a href="/tags/Linux/" style="font-size: 19.85367326752737px;" class="tag-cloud-link">Linux</a>
     
-    <a href="/tags/内网渗透/" style="font-size: 14.460374892189176px;" class="tag-cloud-link">内网渗透</a>
+    <a href="/tags/内网渗透/" style="font-size: 12.843303654169539px;" class="tag-cloud-link">内网渗透</a>
     
 </div>
                 
